@@ -94,7 +94,8 @@ main {
 
 /* display flex annule margin-top par défaut */
 .logo {
-  text-align: center; }
+  text-align: center;
+  padding: 20px 0; }
 
 .search {
   padding: 20px 0;

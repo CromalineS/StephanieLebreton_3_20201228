@@ -103,6 +103,7 @@ main {
 /* display flex annule margin-top par défaut */
 .logo {
   text-align: center;
+  padding: 20px 0;
 }
 
 .search {
