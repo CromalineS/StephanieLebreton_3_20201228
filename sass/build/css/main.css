@@ -284,15 +284,15 @@ nav {
   width: 100%;
   height: 22rem;
   padding-top: 1.5rem;
-  background-image: url("../pictures/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg");
+  background-image: url("");
   background-size: 110%;
   /*background-position: 50% 70%;*/ }
   .identity__head {
-    height: 6rem;
+    height: 7rem;
     background-color: #F6F6F6;
     border-radius: 3rem 3rem 0 0;
     position: relative;
-    top: 16rem;
+    top: 15rem;
     padding: 0 2rem 0 1rem;
     display: flex;
     flex-wrap: nowrap;
@@ -305,6 +305,143 @@ nav {
       /* E */
       /* pour positionnement de fas au dessus de far*/ }
       .identity__head-love > .fas {
+        color: #9356DC;
+        /*linear-gradient($color_1, $color_2); ??? */
+        position: absolute;
+        /* E */
+        /* pour positionnement de fas au dessus de far*/
+        left: 0;
+        /* E */
+        /* pour positionnement de fas au dessus de far*/
+        top: .15rem; }
+
+.identity-1 {
+  width: 100%;
+  height: 22rem;
+  padding-top: 1.5rem;
+  background-image: url("../pictures/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg");
+  background-size: 110%; }
+  .identity-1__head {
+    height: 7rem;
+    background-color: #F6F6F6;
+    border-radius: 3rem 3rem 0 0;
+    position: relative;
+    top: 15rem;
+    padding: 0 2rem 0 1rem;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center; }
+    .identity-1__head-love {
+      /* prépa animation : supperposition du coeur vide et du coeur plein */
+      font-size: 2rem;
+      position: relative;
+      /* E */
+      /* pour positionnement de fas au dessus de far*/ }
+      .identity-1__head-love > .fas {
+        color: #9356DC;
+        /*linear-gradient($color_1, $color_2); ??? */
+        position: absolute;
+        /* E */
+        /* pour positionnement de fas au dessus de far*/
+        left: 0;
+        /* E */
+        /* pour positionnement de fas au dessus de far*/
+        top: .15rem; }
+
+.identity-2 {
+  width: 100%;
+  height: 22rem;
+  padding-top: 1.5rem;
+  background-image: url("../pictures/restaurants/stil-u2Lp8tXIcjw-unsplash.jpg");
+  background-size: 100%;
+  background-position: 0 -150px; }
+  .identity-2__head {
+    height: 7rem;
+    background-color: #F6F6F6;
+    border-radius: 3rem 3rem 0 0;
+    position: relative;
+    top: 15rem;
+    padding: 0 2rem 0 1rem;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center; }
+    .identity-2__head-love {
+      /* prépa animation : supperposition du coeur vide et du coeur plein */
+      font-size: 2rem;
+      position: relative;
+      /* E */
+      /* pour positionnement de fas au dessus de far*/ }
+      .identity-2__head-love > .fas {
+        color: #9356DC;
+        /*linear-gradient($color_1, $color_2); ??? */
+        position: absolute;
+        /* E */
+        /* pour positionnement de fas au dessus de far*/
+        left: 0;
+        /* E */
+        /* pour positionnement de fas au dessus de far*/
+        top: .15rem; }
+
+.identity-3 {
+  width: 100%;
+  height: 22rem;
+  padding-top: 1.5rem;
+  background-image: url("../pictures/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg");
+  background-size: 110%; }
+  .identity-3__head {
+    height: 7rem;
+    background-color: #F6F6F6;
+    border-radius: 3rem 3rem 0 0;
+    position: relative;
+    top: 15rem;
+    padding: 0 2rem 0 1rem;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center; }
+    .identity-3__head-love {
+      /* prépa animation : supperposition du coeur vide et du coeur plein */
+      font-size: 2rem;
+      position: relative;
+      /* E */
+      /* pour positionnement de fas au dessus de far*/ }
+      .identity-3__head-love > .fas {
+        color: #9356DC;
+        /*linear-gradient($color_1, $color_2); ??? */
+        position: absolute;
+        /* E */
+        /* pour positionnement de fas au dessus de far*/
+        left: 0;
+        /* E */
+        /* pour positionnement de fas au dessus de far*/
+        top: .15rem; }
+
+.identity-4 {
+  width: 100%;
+  height: 22rem;
+  padding-top: 1.5rem;
+  background-image: url("../pictures/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg");
+  background-size: 100%; }
+  .identity-4__head {
+    height: 7rem;
+    background-color: #F6F6F6;
+    border-radius: 3rem 3rem 0 0;
+    position: relative;
+    top: 15rem;
+    padding: 0 2rem 0 1rem;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center; }
+    .identity-4__head-love {
+      /* prépa animation : supperposition du coeur vide et du coeur plein */
+      font-size: 2rem;
+      position: relative;
+      /* E */
+      /* pour positionnement de fas au dessus de far*/ }
+      .identity-4__head-love > .fas {
         color: #9356DC;
         /*linear-gradient($color_1, $color_2); ??? */
         position: absolute;
@@ -367,7 +504,8 @@ nav {
         margin-top: 0.5rem; }
     .menu__dish-box-2 {
       width: 20%;
-      text-align: center; }
+      text-align: center;
+      font-weight: bold; }
     .menu__dish-box-3 {
       width: 20%;
       height: 5.5rem;
