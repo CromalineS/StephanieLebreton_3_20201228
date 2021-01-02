@@ -1,9 +1,4 @@
 @charset "UTF-8";
-/* couleurs */
-/* violet */
-/* rose */
-/* vert */
-/* gris clair */
 @font-face {
   font-family: "Shrikhand";
   src: url("../polices/Shrikhand/Shrikhand-Regular.ttf") format("truetype");
@@ -56,6 +51,35 @@
   font-family: "Roboto-ThinItalic";
   src: url("../polices/Roboto/Roboto-ThinItalic.ttf") format("truetype");
 }
+/* couleurs */
+/* violet */
+/* rose */
+/* vert */
+/* gris clair */
+.header {
+  padding: 20px 0;
+  position: relative;
+  /* F */
+  /* pour le positionnement de .return */
+  display: flex;
+  align-items: center;
+}
+.header__return {
+  font-size: 1.8rem;
+  position: absolute;
+  /* F */
+  /* positionnement de .return */
+  left: 2rem;
+  /* F */
+  /* positionnement de .return */
+}
+.header__return .fas {
+  color: #000000;
+}
+.header__logo {
+  margin: auto;
+}
+
 .foot {
   color: #FFFFFF;
   background-color: #444444;
@@ -74,38 +98,7 @@
   width: 1.8rem;
 }
 
-/* Break points 480 (560) 780 960*/
-body {
-  font-family: Roboto-Regular, Arial, sans-serif;
-  font-size: 1.1rem;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-}
-
-h1, h3 {
-  font-family: Shrikhand, Arial, sans-serif;
-  font-weight: normal;
-}
-
-main {
-  /*width: 90%;
-  margin: auto;
-  border: solid 1px red;*/
-}
-
-* {
-  box-sizing: border-box;
-  /* les padding et bordures ne modifient pas les dimensions des boites */
-  /*margin: 0;				/* annule les margin top → à ajuster dans les class / effet sur justify-content: evenly cf .topo */
-}
-
-/* display flex annule margin-top par défaut */
-.logo {
-  text-align: center;
-  padding: 20px 0;
-}
-
+/*---------- INDEX SECTION 1 • SEARCH----------*/
 .search {
   padding: 20px 0;
   background: linear-gradient(#c3c3c3, #e9e9e9 10%);
@@ -119,6 +112,7 @@ main {
   background: transparent;
 }
 
+/*---------- INDEX SECTION 2 • TOPO ----------*/
 .topo {
   text-align: center;
   background-color: #F6F6F6;
@@ -129,10 +123,10 @@ main {
   align-items: center;
   /* permet des width différents pour les boites de .topo  sinon ils s'étirent tous à 100% de .topo */
 }
-.topo__test {
+.topo h2 {
   margin: 0;
 }
-.topo__st {
+.topo p {
   font-size: 1.3rem;
   font-weight: normal;
 }
@@ -142,6 +136,7 @@ main {
 .topo__btn {
   color: #FFFFFF;
   height: 3.5rem;
+  min-width: 15rem;
   border-radius: 2rem;
   background: linear-gradient(175deg, #FF79DA, #9356DC);
   box-shadow: 2px 5px 10px #aaaaaa;
@@ -150,13 +145,15 @@ main {
   display: flex;
   /* A */
   /* pour alignement du texte de btn */
-  /*justify-content: center;	/* A */
-  /* alignement horizontal du texte de btn / inutile car .topo text-align: center;*/
+  justify-content: center;
+  /* A */
+  /* alignement horizontal du texte de btn */
   align-items: center;
   /* A */
   /* alignement vertical du texte de btn */
 }
 
+/*---------- INDEX SECTION 3 • NAV ----------*/
 nav {
   padding: 2rem 2rem 1rem 2rem;
 }
@@ -172,25 +169,25 @@ nav {
 .nav__link {
   text-decoration: none;
   color: #000000;
+  background: #F6F6F6;
   width: 100%;
   /*min-width: 25rem;*/
   height: 5rem;
   border-radius: 1.5rem;
-  background: #F6F6F6;
   box-shadow: 2px 5px 10px #c3c3c3;
   margin-bottom: 2rem;
   display: flex;
   /* A */
-  /* pour alignement des éléments de nav__link */
+  /* pour alignement des sous éléments */
   justify-content: center;
   /* A */
-  /* alignement horizontal des éléments de nav__link */
+  /* alignement horizontal des sous éléments */
   align-items: center;
   /* A */
-  /* alignement vertical des éléments de nav__link */
+  /* alignement vertical des sous éléments */
   position: relative;
   /* B */
-  /* pour pouvoir positionner les nav__number */
+  /* pour pouvoir positionner les sous éléments */
 }
 .nav__number {
   color: #FFFFFF;
@@ -200,13 +197,13 @@ nav {
   background-color: #9356DC;
   display: flex;
   /* A */
-  /* pour alignement des éléménts de nav__number ie le numéro*/
+  /* pour alignement des sous éléments */
   justify-content: center;
   /* A */
-  /* alignement horizontal des éléménts de nav__number */
+  /* alignement horizontal des sous éléments */
   align-items: center;
   /* A */
-  /* alignement vertical des éléménts de nav__number */
+  /* alignement vertical des sous éléments */
   position: absolute;
   /* B */
   /* positionnement de nav__number */
@@ -225,7 +222,8 @@ nav {
   /* positionnement de nav__number */
 }
 
-.resto {
+/*---------- INDEX SECTION 4 • RESTOS ----------*/
+.restos {
   background-color: #F6F6F6;
   padding: 2rem;
   display: flex;
@@ -267,12 +265,37 @@ nav {
   justify-content: space-between;
   align-items: center;
 }
-.card h4 {
+.card__info h4, .card__info p {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  /* F */
+  /*fonctionne si largeur fixe */
+}
+.card__info h4 {
   margin-top: 1rem;
   margin-bottom: 0;
 }
-.card p {
+.card__info p {
   margin-top: 0.5rem;
+}
+.card__info-love {
+  /* prépa animation : supperposition du coeur vide et du coeur plein */
+  font-size: 2rem;
+  position: relative;
+  /* E */
+  /* pour positionnement de fas au dessus de far*/
+}
+.card__info-love > .fas {
+  color: #9356DC;
+  /*linear-gradient($color_1, $color_2); ??? */
+  position: absolute;
+  /* E */
+  /* pour positionnement de fas au dessus de far*/
+  left: 0;
+  /* E */
+  /* pour positionnement de fas au dessus de far*/
+  top: 0.15rem;
 }
 .card__new {
   color: #1b6150;
@@ -288,14 +311,36 @@ nav {
   /* D */
   /* positionnement de card__new */
 }
-.card__love {
+
+/*---------- PAGE RESTO SECTION 1 • IDENTITY ----------*/
+.identity {
+  width: 100%;
+  height: 22rem;
+  padding-top: 1.5rem;
+  background-image: url("");
+  background-size: 110%;
+  /*background-position: 50% 70%;*/
+}
+.identity__head {
+  height: 7rem;
+  background-color: #F6F6F6;
+  border-radius: 3rem 3rem 0 0;
+  position: relative;
+  top: 15rem;
+  padding: 0 2rem 0 1rem;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.identity__head-love {
   /* prépa animation : supperposition du coeur vide et du coeur plein */
   font-size: 2rem;
   position: relative;
   /* E */
   /* pour positionnement de fas au dessus de far*/
 }
-.card__love > .fas {
+.identity__head-love > .fas {
   color: #9356DC;
   /*linear-gradient($color_1, $color_2); ??? */
   position: absolute;
@@ -305,6 +350,140 @@ nav {
   /* E */
   /* pour positionnement de fas au dessus de far*/
   top: 0.15rem;
+}
+
+/*---------- PAGE RESTO SECTION 1 • MENU ----------*/
+.menu {
+  background-color: #F6F6F6;
+}
+.menu__group {
+  padding: 0 1rem 0.5rem 1rem;
+}
+.menu__line {
+  width: 3rem;
+  height: 0.3rem;
+  background-color: #99E2D0;
+  border: none;
+  margin: -1rem 0 1.5rem 0;
+}
+.menu__dish {
+  background-color: #FFFFFF;
+  width: 100%;
+  /*min-width: 25rem;*/
+  height: 5rem;
+  border-radius: 1.5rem;
+  box-shadow: 2px 5px 10px #c3c3c3;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+.menu__dish-anim {
+  width: 130%;
+  padding-left: 1rem;
+  display: flex;
+  /* A */
+  /* pour alignement des sous éléments */
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  /* A */
+  /* alignement horizontal des sous éléments */
+  align-items: flex-end;
+  /* A */
+  /* alignement vertical des sous éléments */
+  transition: all 0.3s;
+}
+.menu__dish-anim:active {
+  /* prépa animation */
+  width: 100%;
+}
+.menu__dish-box-1 {
+  width: 60%;
+}
+.menu__dish-box-1 h4, .menu__dish-box-1 p {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  /* F */
+  /*fonctionne si largeur fixe */
+}
+.menu__dish-box-1 h4 {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+.menu__dish-box-1 p {
+  margin-top: 0.5rem;
+}
+.menu__dish-box-2 {
+  width: 20%;
+  text-align: center;
+}
+.menu__dish-box-3 {
+  width: 20%;
+  height: 5.5rem;
+  background-color: #99E2D0;
+  margin-top: -0.5rem;
+}
+
+/*---------- PAGE RESTO SECTION 1 • COMMAND ----------*/
+.command {
+  background-color: #F6F6F6;
+  padding: 3rem;
+  display: flex;
+  /* permet d'appliquer le padding de button plutôt que le witdh 100% du parent par défaut */
+  justify-content: center;
+}
+.command__link {
+  text-decoration: none;
+}
+.command__btn {
+  color: #FFFFFF;
+  height: 3.5rem;
+  min-width: 15rem;
+  border-radius: 2rem;
+  background: linear-gradient(175deg, #FF79DA, #9356DC);
+  box-shadow: 2px 5px 10px #aaaaaa;
+  padding: 0 2rem;
+  margin-bottom: 1rem;
+  display: flex;
+  /* A */
+  /* pour alignement du texte de btn */
+  justify-content: center;
+  /* A */
+  /* alignement horizontal du texte de btn */
+  align-items: center;
+  /* A */
+  /* alignement vertical du texte de btn */
+}
+
+/* Break points 480 (560) 780 960*/
+body {
+  font-family: Roboto-Regular, Arial, sans-serif;
+  font-size: 1.1rem;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+h1, h3 {
+  font-weight: normal;
+}
+
+h1, h3 {
+  font-family: Shrikhand, Arial, sans-serif;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+* {
+  box-sizing: border-box;
+  /* les padding et bordures ne modifient pas les dimensions des boites */
+}
+
+main {
+  /*width: 90%;
+  margin: auto;
+  border: solid 1px red;*/
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,6 +1,11 @@
-@import "utils/variables";
 @import "base/polices";
+@import "utils/variables";
+@import "utils/mixins";
+@import "layout/header";
 @import "layout/footer";
+@import "pages/index";
+@import "pages/page_resto";
+
 
 /* Break points 480 (560) 780 960*/ 
 
@@ -11,11 +16,19 @@ body {
 	padding: 0; 
 	margin: 0;
 }
-
 h1, h3 {
-	font-family: Shrikhand, Arial, sans-serif;
 	font-weight: normal;
 }
+h1, h3 {
+	font-family: Shrikhand, Arial, sans-serif;
+}
+h1 {
+	font-size: 2rem;
+}
+* {
+	box-sizing: border-box;		/* les padding et bordures ne modifient pas les dimensions des boites */
+}
+
 
 main {
 		/*width: 90%;
@@ -23,169 +36,5 @@ main {
 		border: solid 1px red;*/
 }
 
-* {
-	box-sizing: border-box;		/* les padding et bordures ne modifient pas les dimensions des boites */
-	/*margin: 0;				/* annule les margin top → à ajuster dans les class / effet sur justify-content: evenly cf .topo */
-}
 
-
-/* display flex annule margin-top par défaut */
-
-.logo {
-	text-align: center;
-	padding: 20px 0;
-}
-
-.search {
-	padding: 20px 0;
-	background: linear-gradient(darken($color_4, 20%), darken($color_4, 5%) 10%);
-	display: flex;
-	justify-content: center;
-	&__input {
-		width: 11rem;
-		text-align: center;
-		border: none;
-		background: transparent;
-	}
-}
-
-.topo {
-	text-align: center;
-	background-color: $color_4;
-	padding: 3rem;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	align-items: center;			/* permet des width différents pour les boites de .topo  sinon ils s'étirent tous à 100% de .topo */
-	&__test {
-		margin: 0;
-	}
-	&__st {
-		font-size: 1.3rem;
-		font-weight: normal;
-	}
-	&__link {
-		text-decoration: none;
-	}
-	&__btn {
-		color: $color_01;
-		height: 3.5rem;
-		border-radius: 2rem;
-		background: linear-gradient(175deg, $color_2, $color_1);
-		box-shadow: 2px 5px 10px darken($color_4, 30%);
-		padding: 0 2rem;
-		margin-bottom: 1rem;
-		display: flex;				/* A */ /* pour alignement du texte de btn */
-		/*justify-content: center;	/* A */ /* alignement horizontal du texte de btn / inutile car .topo text-align: center;*/
-		align-items: center; 		/* A */ /* alignement vertical du texte de btn */
-	}
-}
-
-nav {
-	padding: 2rem 2rem 1rem 2rem;
-}
-.nav {
-	padding: 1rem 0 1rem 1rem;		/* ajustement : alignement left de h2 et nav & centrage nav__link*/
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-		/*border: solid 1px black;*/
-	&__link {
-		text-decoration: none;
-		color: $color_00;
-		width: 100%;
-		/*min-width: 25rem;*/
-		height: 5rem;
-		border-radius: 1.5rem;
-		background: $color_4;
-		box-shadow: 2px 5px 10px darken($color_4, 20%);
-		margin-bottom: 2rem;
-		display: flex;				/* A */ /* pour alignement des éléments de nav__link */
-		justify-content: center;	/* A */ /* alignement horizontal des éléments de nav__link */
-		align-items: center; 		/* A */ /* alignement vertical des éléments de nav__link */
-		position: relative;			/* B */ /* pour pouvoir positionner les nav__number */
-	}
-	&__number {
-		color: $color_01;
-		width: 2rem;
-		height: 2rem;
-		border-radius: 2rem;
-		background-color: $color_1;
-		display: flex;				/* A */ /* pour alignement des éléménts de nav__number ie le numéro*/
-		justify-content: center;	/* A */ /* alignement horizontal des éléménts de nav__number */
-		align-items: center; 		/* A */ /* alignement vertical des éléménts de nav__number */
-		position: absolute;			/* B */ /* positionnement de nav__number */
-		left: -1rem;				/* B */ /* positionnement de nav__number */
-	}
-	&__icone {
-		color: $color_1;
-		font-size: 1.5rem;
-		position: absolute;			/* C */ /* positionnement de nav__number */
-		left: 3rem;					/* C */ /* positionnement de nav__number */
-	}
-}
-
-.resto {
-	background-color: $color_4;
-	padding: 2rem;
-	display: flex;
-	flex-wrap: wrap;
-}
-.card {
-		/* background-color: $color_01 */
-		width: 100%;				/* pour firefox */
-		border-radius: 1.5rem;
-		overflow: hidden;
-		box-shadow: 2px 5px 10px darken($color_4, 20%);
-		margin-bottom: 2rem;
-		position: relative;			/* D */ /* pour pouvoir positionner les card__new */
-	&__link {
-		color: $color_00;
-		text-decoration: none;
-	}
-	&__img {
-		/*max-width: 25rem;*/
-		width: 100%;
-		height: 13rem;
-		object-fit: cover;
-		&.ajust_1 {
-			object-position: 50% 100%;
-		}
-		&.ajust_2 {
-			object-position: 50% 60%;
-		}
-	}
-	&__info {
-		padding: 0 2rem 0 1rem;
-		display: flex;
-		flex-wrap: nowrap;
-		justify-content: space-between;
-		align-items: center;
-	}
-	h4 {
-		margin-top: 1rem;
-		margin-bottom: 0;
-	}
-	p {
-		margin-top: 0.5rem;
-	}
-	&__new {
-		color: darken($color_3, 50%);
-		background-color: $color_3;
-		padding: .5rem 1rem;
-		position: absolute;			/* D */ /* positionnement de card__new */
-		top: .1rem;					/* D */ /* positionnement de card__new */
-		right: 1rem;				/* D */ /* positionnement de card__new */
-	}
-	&__love {			 			/* prépa animation : supperposition du coeur vide et du coeur plein */
-		font-size: 2rem;
-		position : relative;		/* E */ /* pour positionnement de fas au dessus de far*/
-		& > .fas {
-			color: $color_1; 		/*linear-gradient($color_1, $color_2); ??? */
-			position: absolute;		/* E */ /* pour positionnement de fas au dessus de far*/
-			left: 0;				/* E */ /* pour positionnement de fas au dessus de far*/
-			top: .15rem;
-		}
-	}
-}
 

@@ -1,0 +1,78 @@
+/*---------- PAGE RESTO SECTION 1 • IDENTITY ----------*/
+.identity {
+	width: 100%;
+	height: 22rem;
+	padding-top: 1.5rem;
+	background-image: url("");
+	background-size: 110%;
+	/*background-position: 50% 70%;*/
+	&__head {
+		height: 7rem;
+		background-color: $color_4;
+		border-radius: 3rem 3rem 0 0;
+		position: relative;
+		top: 15rem;
+		@include flex-align-row-between-center-padding;
+		&-love {
+			@include love-anim;
+		}
+	}
+}
+
+/*---------- PAGE RESTO SECTION 1 • MENU ----------*/
+.menu {
+	background-color: $color_4;
+	&__group {
+		padding: 0 1rem 0.5rem 1rem;
+	}
+	&__line {
+		width: 3rem;
+		height: .3rem;
+		background-color: $color_3;
+		border: none;
+		margin: -1rem 0 1.5rem 0;
+	}
+	&__dish {
+		background-color: $color_01;
+		@include window;
+		margin-bottom: 1rem;
+		overflow: hidden;
+		&-anim {
+			width: 130%;
+			@include flex-align-row-nowrap-between-start-padding;
+			transition: all .3s;
+			&:active {					/* prépa animation */
+				width: 100%;
+			}
+		}
+		&-box-1 {
+			width: 60%;
+			@include ajust-h4-p;
+		}
+		&-box-2{
+			width: 20%;
+			text-align: center;
+		}
+		&-box-3 {
+		width: 20%;
+		height: 5.5rem;
+		background-color: $color_3;
+		margin-top: -.5rem;
+		}
+	}
+}
+
+/*---------- PAGE RESTO SECTION 1 • COMMAND ----------*/
+.command {
+	background-color: $color_4;
+	padding: 3rem;
+	display: flex;	/* permet d'appliquer le padding de button plutôt que le witdh 100% du parent par défaut */ 
+	justify-content: center;
+	&__link {
+		text-decoration: none;
+	}
+	&__btn {
+		@include button;
+	}
+}
+
