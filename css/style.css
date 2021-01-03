@@ -178,6 +178,7 @@
   min-width: 15rem;
   border-radius: 2rem;
   background: linear-gradient(175deg, #FF79DA, #9356DC);
+  /*transition: box-shadow 500ms ease-in-out;					/* A2 → paint à chaque image */
   box-shadow: 2px 5px 10px #aaaaaa;
   padding: 0 2rem;
   margin-bottom: 1rem;
@@ -202,6 +203,7 @@
   border-radius: 2rem;
   background-color: #FFFFFF;
   box-shadow: 2px 5px 5px #000000;
+  /* A1 */
   position: absolute;
   /* G */
   /* positionnement de ::before dans btn */
@@ -214,9 +216,13 @@
   opacity: 0;
   /* état initial de ::before */
   transition: opacity 500ms ease-in-out;
+  /* A1 */
+}
+.topo__btn:hover {
+  /*box-shadow: 1px 5px 10px darken($color_4, 60%);	/* A2 → paint à chaque image  */
 }
 .topo__btn:hover::after {
-  opacity: 0.1;
+  opacity: 0.2;
 }
 
 /*---------- INDEX SECTION 3 • NAV ----------*/
@@ -407,7 +413,7 @@ nav {
   transform: scale(1);
 }
 
-/*---------- PAGE RESTO SECTION 1 • IDENTITY ----------*/
+/*---------- PAGES RESTO SECTION 1 • IDENTITY ----------*/
 .identity-0 {
   width: 100%;
   height: 22rem;
@@ -599,7 +605,7 @@ nav {
   animation: full-size 500ms 100ms forwards;
 }
 
-/*---------- PAGE RESTO SECTION 1 • MENU ----------*/
+/*---------- PAGES RESTO SECTION 1 • MENU ----------*/
 .menu {
   background-color: #F6F6F6;
   padding: 0 1rem 0.5rem 1rem;
@@ -623,8 +629,9 @@ nav {
   box-shadow: 2px 5px 10px #c3c3c3;
   margin-bottom: 1rem;
   overflow: hidden;
+  cursor: pointer;
 }
-.menu__dish-anim {
+.menu__dish--valid {
   width: 130%;
   padding-left: 1rem;
   display: flex;
@@ -637,11 +644,14 @@ nav {
   align-items: flex-end;
   /* A */
   /* alignement vertical des sous éléments */
-  transition: all 0.3s;
+  transition: all 500ms;
 }
-.menu__dish-anim:active {
+.menu__dish--valid:hover {
   /* prépa animation */
   width: 100%;
+}
+.menu__dish--valid:hover > .menu__dish-box-3 > .fas {
+  transform: rotate(1turn);
 }
 .menu__dish-box-1 {
   width: 60%;
@@ -670,9 +680,18 @@ nav {
   height: 5.5rem;
   background-color: #99E2D0;
   margin-top: -0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu__dish-box-3 .fas {
+  color: #FFFFFF;
+  font-size: 2rem;
+  transform: rotate(0);
+  transition: transform 420ms 80ms;
 }
 
-/*---------- PAGE RESTO SECTION 1 • COMMAND ----------*/
+/*---------- PAGES RESTO SECTION 1 • COMMAND ----------*/
 .command {
   background-color: #F6F6F6;
   padding: 3rem;
@@ -689,6 +708,7 @@ nav {
   min-width: 15rem;
   border-radius: 2rem;
   background: linear-gradient(175deg, #FF79DA, #9356DC);
+  /*transition: box-shadow 500ms ease-in-out;					/* A2 → paint à chaque image */
   box-shadow: 2px 5px 10px #aaaaaa;
   padding: 0 2rem;
   margin-bottom: 1rem;
@@ -713,6 +733,7 @@ nav {
   border-radius: 2rem;
   background-color: #FFFFFF;
   box-shadow: 2px 5px 5px #000000;
+  /* A1 */
   position: absolute;
   /* G */
   /* positionnement de ::before dans btn */
@@ -725,9 +746,13 @@ nav {
   opacity: 0;
   /* état initial de ::before */
   transition: opacity 500ms ease-in-out;
+  /* A1 */
+}
+.command__btn:hover {
+  /*box-shadow: 1px 5px 10px darken($color_4, 60%);	/* A2 → paint à chaque image  */
 }
 .command__btn:hover::after {
-  opacity: 0.1;
+  opacity: 0.2;
 }
 
 /* Break points 480 (560) 780 960*/

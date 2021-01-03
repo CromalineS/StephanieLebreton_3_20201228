@@ -1,4 +1,4 @@
-/*---------- PAGE RESTO SECTION 1 • IDENTITY ----------*/
+/*---------- PAGES RESTO SECTION 1 • IDENTITY ----------*/
 .identity-0 {
 	width: 100%;
 	height: 22rem;
@@ -91,7 +91,7 @@
 	}
 }
 
-/*---------- PAGE RESTO SECTION 1 • MENU ----------*/
+/*---------- PAGES RESTO SECTION 1 • MENU ----------*/
 .menu {
 	background-color: $color_4;
 	padding: 0 1rem 0.5rem 1rem;
@@ -110,12 +110,18 @@
 		@include window;
 		margin-bottom: 1rem;
 		overflow: hidden;
-		&-anim {
+		cursor: pointer;
+		&--valid {
 			width: 130%;
 			@include flex-align-row-nowrap-between-start-padding;
-			transition: all .3s;
-			&:active {					/* prépa animation */
+			transition: all 500ms;
+			&:hover {					/* prépa animation */
 				width: 100%;
+				> .menu__dish-box-3 {
+					> .fas {
+						transform: rotate(1turn);
+					}
+				}
 			}
 		}
 		&-box-1 {
@@ -128,15 +134,24 @@
 			font-weight: bold;
 		}
 		&-box-3 {
-		width: 20%;
-		height: 5.5rem;
-		background-color: $color_3;
-		margin-top: -.5rem;
+			width: 20%;
+			height: 5.5rem;
+			background-color: $color_3;
+			margin-top: -.5rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			.fas {
+				color: $color_01;
+				font-size: 2rem;
+				transform: rotate(0);
+				transition: transform 420ms 80ms;
+			}
 		}
 	}
 }
 
-/*---------- PAGE RESTO SECTION 1 • COMMAND ----------*/
+/*---------- PAGES RESTO SECTION 1 • COMMAND ----------*/
 .command {
 	background-color: $color_4;
 	padding: 3rem;
