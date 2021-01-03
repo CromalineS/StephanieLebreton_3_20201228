@@ -1,0 +1,3 @@
+@charset "UTF-8";
+/* animation A (testé dans la section resto de l'index): un paint avant et après l'animation / quelques frames à plus de 60 fps */
+/* animation B (testé sur nom resto des pages resto): paint à chaque image → solution moin sperformante */

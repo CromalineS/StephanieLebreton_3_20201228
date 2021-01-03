@@ -56,6 +56,37 @@
 /* rose */
 /* vert */
 /* gris clair */
+/* animation A (testé dans la section resto de l'index): un paint avant et après l'animation / quelques frames à plus de 60 fps */
+/* animation B (testé sur nom resto des pages resto): paint à chaque image → solution moin sperformante */
+@keyframes full-scale {
+  from {
+    transform: scale(0);
+    animation-timing-function: ease-in-out; }
+  95% {
+    transform: scale(1.1);
+    animation-timing-function: ease-in-out; }
+  100% {
+    transform: scale(1); } }
+
+@keyframes full-size {
+  from {
+    height: 0;
+    transform: scale(1);
+    animation-timing-function: ease-in-out; }
+  95% {
+    height: 2rem;
+    transform: scale(1.2);
+    animation-timing-function: ease-in-out; }
+  100% {
+    height: 2rem;
+    transform: scale(1); } }
+
+@keyframes photo {
+  from {
+    transform: scale(1); }
+  to {
+    transform: scale(1.2); } }
+
 .header {
   padding: 20px 0;
   position: relative;
@@ -136,7 +167,32 @@
     /* alignement horizontal du texte de btn */
     align-items: center;
     /* A */
-    /* alignement vertical du texte de btn */ }
+    /* alignement vertical du texte de btn */
+    position: relative;
+    /* G */
+    /* pour positionnement de ::before dans btn */ }
+    .topo__btn::after {
+      /* éclaircissement de btn • élément en-dessous du texte → ::after */
+      content: "";
+      height: 100%;
+      width: 100%;
+      border-radius: 2rem;
+      background-color: #FFFFFF;
+      box-shadow: 2px 5px 5px #000000;
+      position: absolute;
+      /* G */
+      /* positionnement de ::before dans btn */
+      left: 0;
+      /* G */
+      /* pour positionnement de ::before dans btn */
+      top: 0;
+      /* G */
+      /* pour positionnement de ::before dans btn */
+      opacity: 0;
+      /* état initial de ::before */
+      transition: opacity 500ms ease-in-out; }
+    .topo__btn:hover::after {
+      opacity: .1; }
 
 /*---------- INDEX SECTION 3 • NAV ----------*/
 nav {
@@ -219,19 +275,31 @@ nav {
   margin-bottom: 2rem;
   position: relative;
   /* D */
-  /* pour pouvoir positionner les card__new */ }
+  /* pour pouvoir positionner les enfants */ }
   .card__link {
     color: #000000;
-    text-decoration: none; }
+    text-decoration: none;
+    /*&:hover {
+			~ .card__new {
+				animation: full-scale 500ms 200ms forwards;
+			}
+			> .card__img {
+				animation: full-scale 300ms 100ms forwards;
+			}
+		}*/ }
   .card__img {
-    /*max-width: 25rem;*/
     width: 100%;
     height: 13rem;
-    object-fit: cover; }
-    .card__img.ajust_1 {
-      object-position: 50% 100%; }
-    .card__img.ajust_2 {
-      object-position: 50% 60%; }
+    overflow: hidden; }
+    .card__img .photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1); }
+      .card__img .photo.ajust_1 {
+        object-position: 50% 100%; }
+      .card__img .photo.ajust_2 {
+        object-position: 50% 60%; }
   .card__info {
     padding: 0 2rem 0 1rem;
     display: flex;
@@ -250,7 +318,7 @@ nav {
     .card__info p {
       margin-top: 0.5rem; }
     .card__info-love {
-      /* prépa animation : supperposition du coeur vide et du coeur plein */
+      /* animation : supperposition du coeur vide et du coeur plein */
       font-size: 2rem;
       position: relative;
       /* E */
@@ -264,7 +332,11 @@ nav {
         left: 0;
         /* E */
         /* pour positionnement de fas au dessus de far*/
-        top: .15rem; }
+        top: .15rem;
+        transform: scale(0);
+        transform-origin: bottom; }
+      .card__info-love:hover > .fas {
+        animation: full-scale 500ms 100ms forwards; }
   .card__new {
     color: #1b6150;
     background-color: #99E2D0;
@@ -278,6 +350,14 @@ nav {
     right: 1rem;
     /* D */
     /* positionnement de card__new */ }
+  .card:hover .card__new {
+    animation: full-scale 500ms 200ms forwards; }
+  .card:hover .photo {
+    transition: transform 200ms 100ms ease-in;
+    transform: scale(1.1); }
+  .card:not(:hover) .photo {
+    transition: transform 200ms ease-in;
+    transform: scale(1); }
 
 /*---------- PAGE RESTO SECTION 1 • IDENTITY ----------*/
 .identity-0 {
@@ -298,21 +378,20 @@ nav {
     justify-content: space-between;
     align-items: center; }
     .identity-0__head-love {
-      /* prépa animation : supperposition du coeur vide et du coeur plein */
       font-size: 2rem;
-      position: relative;
-      /* E */
-      /* pour positionnement de fas au dessus de far*/ }
-      .identity-0__head-love > .fas {
+      cursor: pointer;
+      position: relative; }
+      .identity-0__head-love > div:nth-child(2) {
         color: #9356DC;
-        /*linear-gradient($color_1, $color_2); ??? */
+        width: 2.2rem;
+        /* ajustement pour que l'icone ne soit pas rognée à cause du scale */
         position: absolute;
-        /* E */
-        /* pour positionnement de fas au dessus de far*/
         left: 0;
-        /* E */
-        /* pour positionnement de fas au dessus de far*/
-        top: .15rem; }
+        top: .15rem;
+        overflow: hidden;
+        height: 0; }
+      .identity-0__head-love:hover > div:nth-child(2) {
+        animation: full-size 500ms 100ms forwards; }
 
 .identity-1 {
   width: 100%;
@@ -332,21 +411,20 @@ nav {
     justify-content: space-between;
     align-items: center; }
     .identity-1__head-love {
-      /* prépa animation : supperposition du coeur vide et du coeur plein */
       font-size: 2rem;
-      position: relative;
-      /* E */
-      /* pour positionnement de fas au dessus de far*/ }
-      .identity-1__head-love > .fas {
+      cursor: pointer;
+      position: relative; }
+      .identity-1__head-love > div:nth-child(2) {
         color: #9356DC;
-        /*linear-gradient($color_1, $color_2); ??? */
+        width: 2.2rem;
+        /* ajustement pour que l'icone ne soit pas rognée à cause du scale */
         position: absolute;
-        /* E */
-        /* pour positionnement de fas au dessus de far*/
         left: 0;
-        /* E */
-        /* pour positionnement de fas au dessus de far*/
-        top: .15rem; }
+        top: .15rem;
+        overflow: hidden;
+        height: 0; }
+      .identity-1__head-love:hover > div:nth-child(2) {
+        animation: full-size 500ms 100ms forwards; }
 
 .identity-2 {
   width: 100%;
@@ -367,21 +445,20 @@ nav {
     justify-content: space-between;
     align-items: center; }
     .identity-2__head-love {
-      /* prépa animation : supperposition du coeur vide et du coeur plein */
       font-size: 2rem;
-      position: relative;
-      /* E */
-      /* pour positionnement de fas au dessus de far*/ }
-      .identity-2__head-love > .fas {
+      cursor: pointer;
+      position: relative; }
+      .identity-2__head-love > div:nth-child(2) {
         color: #9356DC;
-        /*linear-gradient($color_1, $color_2); ??? */
+        width: 2.2rem;
+        /* ajustement pour que l'icone ne soit pas rognée à cause du scale */
         position: absolute;
-        /* E */
-        /* pour positionnement de fas au dessus de far*/
         left: 0;
-        /* E */
-        /* pour positionnement de fas au dessus de far*/
-        top: .15rem; }
+        top: .15rem;
+        overflow: hidden;
+        height: 0; }
+      .identity-2__head-love:hover > div:nth-child(2) {
+        animation: full-size 500ms 100ms forwards; }
 
 .identity-3 {
   width: 100%;
@@ -401,21 +478,20 @@ nav {
     justify-content: space-between;
     align-items: center; }
     .identity-3__head-love {
-      /* prépa animation : supperposition du coeur vide et du coeur plein */
       font-size: 2rem;
-      position: relative;
-      /* E */
-      /* pour positionnement de fas au dessus de far*/ }
-      .identity-3__head-love > .fas {
+      cursor: pointer;
+      position: relative; }
+      .identity-3__head-love > div:nth-child(2) {
         color: #9356DC;
-        /*linear-gradient($color_1, $color_2); ??? */
+        width: 2.2rem;
+        /* ajustement pour que l'icone ne soit pas rognée à cause du scale */
         position: absolute;
-        /* E */
-        /* pour positionnement de fas au dessus de far*/
         left: 0;
-        /* E */
-        /* pour positionnement de fas au dessus de far*/
-        top: .15rem; }
+        top: .15rem;
+        overflow: hidden;
+        height: 0; }
+      .identity-3__head-love:hover > div:nth-child(2) {
+        animation: full-size 500ms 100ms forwards; }
 
 .identity-4 {
   width: 100%;
@@ -435,28 +511,27 @@ nav {
     justify-content: space-between;
     align-items: center; }
     .identity-4__head-love {
-      /* prépa animation : supperposition du coeur vide et du coeur plein */
       font-size: 2rem;
-      position: relative;
-      /* E */
-      /* pour positionnement de fas au dessus de far*/ }
-      .identity-4__head-love > .fas {
+      cursor: pointer;
+      position: relative; }
+      .identity-4__head-love > div:nth-child(2) {
         color: #9356DC;
-        /*linear-gradient($color_1, $color_2); ??? */
+        width: 2.2rem;
+        /* ajustement pour que l'icone ne soit pas rognée à cause du scale */
         position: absolute;
-        /* E */
-        /* pour positionnement de fas au dessus de far*/
         left: 0;
-        /* E */
-        /* pour positionnement de fas au dessus de far*/
-        top: .15rem; }
+        top: .15rem;
+        overflow: hidden;
+        height: 0; }
+      .identity-4__head-love:hover > div:nth-child(2) {
+        animation: full-size 500ms 100ms forwards; }
 
 /*---------- PAGE RESTO SECTION 1 • MENU ----------*/
 .menu {
   background-color: #F6F6F6;
   padding: 0 1rem 0.5rem 1rem; }
   .menu__group {
-    margin-top: 1rem; }
+    padding-top: .5rem; }
   .menu__line {
     width: 3rem;
     height: .3rem;
@@ -538,7 +613,32 @@ nav {
     /* alignement horizontal du texte de btn */
     align-items: center;
     /* A */
-    /* alignement vertical du texte de btn */ }
+    /* alignement vertical du texte de btn */
+    position: relative;
+    /* G */
+    /* pour positionnement de ::before dans btn */ }
+    .command__btn::after {
+      /* éclaircissement de btn • élément en-dessous du texte → ::after */
+      content: "";
+      height: 100%;
+      width: 100%;
+      border-radius: 2rem;
+      background-color: #FFFFFF;
+      box-shadow: 2px 5px 5px #000000;
+      position: absolute;
+      /* G */
+      /* positionnement de ::before dans btn */
+      left: 0;
+      /* G */
+      /* pour positionnement de ::before dans btn */
+      top: 0;
+      /* G */
+      /* pour positionnement de ::before dans btn */
+      opacity: 0;
+      /* état initial de ::before */
+      transition: opacity 500ms ease-in-out; }
+    .command__btn:hover::after {
+      opacity: .1; }
 
 /* Break points 480 (560) 780 960*/
 body {

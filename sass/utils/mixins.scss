@@ -10,9 +10,28 @@
 	display: flex;				/* A */ /* pour alignement du texte de btn */
 	justify-content: center;	/* A */ /* alignement horizontal du texte de btn */
 	align-items: center; 		/* A */ /* alignement vertical du texte de btn */
+	position: relative;			/* G */ /* pour positionnement de ::before dans btn */
+	&::after {					/* éclaircissement de btn • élément en-dessous du texte → ::after */		
+		content:"";
+		height: 100%;
+		width: 100%;
+		border-radius: 2rem;
+		background-color: $color_01;
+		box-shadow: 2px 5px 5px $color_00;
+		position: absolute;		/* G */ /* positionnement de ::before dans btn */
+		left: 0;				/* G */ /* pour positionnement de ::before dans btn */
+		top: 0;					/* G */ /* pour positionnement de ::before dans btn */
+		opacity: 0;				/* état initial de ::before */
+		transition: opacity 500ms ease-in-out;
+	}
+	&:hover {
+		&::after {
+			opacity: .1;
+		}
+	}
 }
-
-@mixin love-anim {					/* prépa animation : supperposition du coeur vide et du coeur plein */
+/* animation A (testé dans la section resto de l'index): un paint avant et après l'animation / quelques frames à plus de 60 fps */
+@mixin love-anim-A {				/* animation : supperposition du coeur vide et du coeur plein */
 	font-size: 2rem;
 	position : relative;			/* E */ /* pour positionnement de fas au dessus de far*/
 	& > .fas {
@@ -20,8 +39,35 @@
 		position: absolute;			/* E */ /* pour positionnement de fas au dessus de far*/
 		left: 0;					/* E */ /* pour positionnement de fas au dessus de far*/
 		top: .15rem;
+		transform: scale(0);
+		transform-origin: bottom;
+	}
+	&:hover > .fas {
+		animation: full-scale 500ms 100ms forwards;
 	}
 }
+
+/* animation B (testé sur nom resto des pages resto): paint à chaque image → solution moin sperformante */
+@mixin love-anim-B {
+	font-size: 2rem;
+	cursor: pointer;
+	position : relative;
+	> div:nth-child(2) {
+		color: $color_1;
+		width: 2.2rem;			/* ajustement pour que l'icone ne soit pas rognée à cause du scale */
+		position: absolute;
+		left: 0;
+		top: .15rem;
+		overflow: hidden;
+		height: 0;
+	}
+	&:hover {
+		> div:nth-child(2) {
+			animation: full-size 500ms 100ms forwards;
+		}
+	}
+}
+
 
 @mixin window {
 	width: 100%;
