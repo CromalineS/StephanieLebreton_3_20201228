@@ -33,7 +33,7 @@
 	}
 }
 /* animation A (testé dans la section resto de l'index): un paint avant et après l'animation / quelques frames à plus de 60 fps */
-@mixin love-anim-A {				/* animation : supperposition du coeur vide et du coeur plein */
+@mixin love-anim {				/* animation : supperposition du coeur vide et du coeur plein */
 	font-size: 2rem;
 	position : relative;			/* E */ /* pour positionnement de fas au dessus de far*/
 	& > .fas {
@@ -46,27 +46,6 @@
 	}
 	&:hover > .fas {
 		animation: full-scale 500ms 100ms forwards;
-	}
-}
-
-/* animation B (testé sur nom resto des pages resto): paint à chaque image → solution moin sperformante */
-@mixin love-anim-B {
-	font-size: 2rem;
-	cursor: pointer;
-	position : relative;
-	> div:nth-child(2) {
-		color: $color_1;
-		width: 2.2rem;			/* ajustement pour que l'icone ne soit pas rognée à cause du scale */
-		position: absolute;
-		left: 0;
-		top: .15rem;
-		overflow: hidden;
-		height: 0;
-	}
-	&:hover {
-		> div:nth-child(2) {
-			animation: full-size 500ms 100ms forwards;
-		}
 	}
 }
 
@@ -112,7 +91,7 @@
 	justify-content: space-between;	/* A */ /* alignement horizontal des sous éléments */
 	align-items: flex-end; 			/* A */ /* alignement vertical des sous éléments */
 }
-@mixin flex-align-row-nowrap-between-start-padding {
+@mixin flex-align-row-nowrap-between-start-end-padding {
 	padding-left: 1rem;
 	display: flex;					/* A */ /* pour alignement des sous éléments */
 	flex-wrap: nowrap;				

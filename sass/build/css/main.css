@@ -57,7 +57,6 @@
 /* vert */
 /* gris clair */
 /* animation A (testé dans la section resto de l'index): un paint avant et après l'animation / quelques frames à plus de 60 fps */
-/* animation B (testé sur nom resto des pages resto): paint à chaque image → solution moin sperformante */
 @keyframes full-scale {
   from {
     transform: scale(0);
@@ -86,6 +85,20 @@
     transform: scale(1); }
   to {
     transform: scale(1.2); } }
+
+@keyframes group {
+  from {
+    left: -50rem; }
+  to {
+    left: 0; } }
+
+@keyframes dish {
+  from {
+    opacity: 0;
+    transform: translateY(1rem); }
+  to {
+    opacity: 1;
+    transform: translateY(0); } }
 
 .header {
   padding: 20px 0;
@@ -258,10 +271,10 @@ nav {
     font-size: 1.5rem;
     position: absolute;
     /* C */
-    /* positionnement de nav__number */
+    /* positionnement de nav__icone */
     left: 3rem;
     /* C */
-    /* positionnement de nav__number */ }
+    /* positionnement de nav__icone */ }
 
 /*---------- INDEX SECTION 4 • RESTOS ----------*/
 .restos {
@@ -383,20 +396,25 @@ nav {
     justify-content: space-between;
     align-items: center; }
     .identity-0__head-love {
+      /* animation : supperposition du coeur vide et du coeur plein */
       font-size: 2rem;
-      cursor: pointer;
-      position: relative; }
-      .identity-0__head-love > div:nth-child(2) {
+      position: relative;
+      /* E */
+      /* pour positionnement de fas au dessus de far*/ }
+      .identity-0__head-love > .fas {
         color: #9356DC;
-        width: 2.2rem;
-        /* ajustement pour que l'icone ne soit pas rognée à cause du scale */
+        /*linear-gradient($color_1, $color_2); ??? */
         position: absolute;
+        /* E */
+        /* pour positionnement de fas au dessus de far*/
         left: 0;
+        /* E */
+        /* pour positionnement de fas au dessus de far*/
         top: .15rem;
-        overflow: hidden;
-        height: 0; }
-      .identity-0__head-love:hover > div:nth-child(2) {
-        animation: full-size 500ms 100ms forwards; }
+        transform: scale(0);
+        transform-origin: bottom; }
+      .identity-0__head-love:hover > .fas {
+        animation: full-scale 500ms 100ms forwards; }
 
 .identity-1 {
   width: 100%;
@@ -416,20 +434,25 @@ nav {
     justify-content: space-between;
     align-items: center; }
     .identity-1__head-love {
+      /* animation : supperposition du coeur vide et du coeur plein */
       font-size: 2rem;
-      cursor: pointer;
-      position: relative; }
-      .identity-1__head-love > div:nth-child(2) {
+      position: relative;
+      /* E */
+      /* pour positionnement de fas au dessus de far*/ }
+      .identity-1__head-love > .fas {
         color: #9356DC;
-        width: 2.2rem;
-        /* ajustement pour que l'icone ne soit pas rognée à cause du scale */
+        /*linear-gradient($color_1, $color_2); ??? */
         position: absolute;
+        /* E */
+        /* pour positionnement de fas au dessus de far*/
         left: 0;
+        /* E */
+        /* pour positionnement de fas au dessus de far*/
         top: .15rem;
-        overflow: hidden;
-        height: 0; }
-      .identity-1__head-love:hover > div:nth-child(2) {
-        animation: full-size 500ms 100ms forwards; }
+        transform: scale(0);
+        transform-origin: bottom; }
+      .identity-1__head-love:hover > .fas {
+        animation: full-scale 500ms 100ms forwards; }
 
 .identity-2 {
   width: 100%;
@@ -450,20 +473,25 @@ nav {
     justify-content: space-between;
     align-items: center; }
     .identity-2__head-love {
+      /* animation : supperposition du coeur vide et du coeur plein */
       font-size: 2rem;
-      cursor: pointer;
-      position: relative; }
-      .identity-2__head-love > div:nth-child(2) {
+      position: relative;
+      /* E */
+      /* pour positionnement de fas au dessus de far*/ }
+      .identity-2__head-love > .fas {
         color: #9356DC;
-        width: 2.2rem;
-        /* ajustement pour que l'icone ne soit pas rognée à cause du scale */
+        /*linear-gradient($color_1, $color_2); ??? */
         position: absolute;
+        /* E */
+        /* pour positionnement de fas au dessus de far*/
         left: 0;
+        /* E */
+        /* pour positionnement de fas au dessus de far*/
         top: .15rem;
-        overflow: hidden;
-        height: 0; }
-      .identity-2__head-love:hover > div:nth-child(2) {
-        animation: full-size 500ms 100ms forwards; }
+        transform: scale(0);
+        transform-origin: bottom; }
+      .identity-2__head-love:hover > .fas {
+        animation: full-scale 500ms 100ms forwards; }
 
 .identity-3 {
   width: 100%;
@@ -483,20 +511,25 @@ nav {
     justify-content: space-between;
     align-items: center; }
     .identity-3__head-love {
+      /* animation : supperposition du coeur vide et du coeur plein */
       font-size: 2rem;
-      cursor: pointer;
-      position: relative; }
-      .identity-3__head-love > div:nth-child(2) {
+      position: relative;
+      /* E */
+      /* pour positionnement de fas au dessus de far*/ }
+      .identity-3__head-love > .fas {
         color: #9356DC;
-        width: 2.2rem;
-        /* ajustement pour que l'icone ne soit pas rognée à cause du scale */
+        /*linear-gradient($color_1, $color_2); ??? */
         position: absolute;
+        /* E */
+        /* pour positionnement de fas au dessus de far*/
         left: 0;
+        /* E */
+        /* pour positionnement de fas au dessus de far*/
         top: .15rem;
-        overflow: hidden;
-        height: 0; }
-      .identity-3__head-love:hover > div:nth-child(2) {
-        animation: full-size 500ms 100ms forwards; }
+        transform: scale(0);
+        transform-origin: bottom; }
+      .identity-3__head-love:hover > .fas {
+        animation: full-scale 500ms 100ms forwards; }
 
 .identity-4 {
   width: 100%;
@@ -516,27 +549,34 @@ nav {
     justify-content: space-between;
     align-items: center; }
     .identity-4__head-love {
+      /* animation : supperposition du coeur vide et du coeur plein */
       font-size: 2rem;
-      cursor: pointer;
-      position: relative; }
-      .identity-4__head-love > div:nth-child(2) {
+      position: relative;
+      /* E */
+      /* pour positionnement de fas au dessus de far*/ }
+      .identity-4__head-love > .fas {
         color: #9356DC;
-        width: 2.2rem;
-        /* ajustement pour que l'icone ne soit pas rognée à cause du scale */
+        /*linear-gradient($color_1, $color_2); ??? */
         position: absolute;
+        /* E */
+        /* pour positionnement de fas au dessus de far*/
         left: 0;
+        /* E */
+        /* pour positionnement de fas au dessus de far*/
         top: .15rem;
-        overflow: hidden;
-        height: 0; }
-      .identity-4__head-love:hover > div:nth-child(2) {
-        animation: full-size 500ms 100ms forwards; }
+        transform: scale(0);
+        transform-origin: bottom; }
+      .identity-4__head-love:hover > .fas {
+        animation: full-scale 500ms 100ms forwards; }
 
 /*---------- PAGES RESTO SECTION 1 • MENU ----------*/
 .menu {
   background-color: #F6F6F6;
   padding: 0 1rem 0.5rem 1rem; }
   .menu__group {
-    padding-top: .5rem; }
+    padding-top: .5rem;
+    position: relative;
+    animation: group 500ms 200ms both ease-out; }
   .menu__line {
     width: 3rem;
     height: .3rem;
@@ -552,8 +592,31 @@ nav {
     box-shadow: 2px 5px 10px #c3c3c3;
     margin-bottom: 1rem;
     overflow: hidden;
-    cursor: pointer; }
+    cursor: pointer;
+    animation: dish 1s both cubic-bezier(0, 0, 0.2, 1);
+    /* un peu plus doux que ease-out à la fin */ }
+    .menu__dish--L1 {
+      animation-delay: 860ms; }
+    .menu__dish--L2 {
+      animation-delay: 1020ms; }
+    .menu__dish--L3 {
+      animation-delay: 1180ms; }
+    .menu__dish--L4 {
+      animation-delay: 1340ms; }
+    .menu__dish--L5 {
+      animation-delay: 1500ms; }
+    .menu__dish--L6 {
+      animation-delay: 1660ms; }
+    .menu__dish--L7 {
+      animation-delay: 1820ms; }
+    .menu__dish--L8 {
+      animation-delay: 1980ms; }
+    .menu__dish--L9 {
+      animation-delay: 2140ms; }
+    .menu__dish--L10 {
+      animation-delay: 2300ms; }
     .menu__dish--valid {
+      /* animation coche plat */
       width: 130%;
       padding-left: 1rem;
       display: flex;
@@ -594,6 +657,7 @@ nav {
       height: 5.5rem;
       background-color: #99E2D0;
       margin-top: -.5rem;
+      /* ajustement centrage vertical ??? */
       display: flex;
       justify-content: center;
       align-items: center; }
@@ -601,7 +665,8 @@ nav {
         color: #FFFFFF;
         font-size: 2rem;
         transform: rotate(0);
-        transition: transform 420ms 80ms; }
+        transition: transform 420ms 80ms;
+        /* choix valeur cf ChromeDevTool */ }
 
 /*---------- PAGES RESTO SECTION 1 • COMMAND ----------*/
 .command {
@@ -686,3 +751,45 @@ main {
   /*width: 90%;
 		margin: auto;
 		border: solid 1px red;*/ }
+
+/* TESTS */
+.test {
+  width: 50%;
+  margin: auto;
+  margin-top: 30%;
+  /*display: flex;
+	flex-direction: column;*/
+  border: solid 1px black; }
+
+.carre {
+  width: 3rem;
+  height: 3rem;
+  margin: auto;
+  /*border: solid 2px black;*/
+  animation: dish 1s both; }
+  .carre__bckgrd--1 {
+    background-color: #9356DC; }
+  .carre__bckgrd--2 {
+    background-color: #FF79DA; }
+  .carre__bckgrd--3 {
+    background-color: #99E2D0; }
+  .carre--L1 {
+    animation-delay: 160ms; }
+  .carre--L2 {
+    animation-delay: 320ms; }
+  .carre--L3 {
+    animation-delay: 480ms; }
+  .carre--L4 {
+    animation-delay: 640ms; }
+  .carre--L5 {
+    animation-delay: 800ms; }
+  .carre--L6 {
+    animation-delay: 960ms; }
+  .carre--L7 {
+    animation-delay: 1120ms; }
+  .carre--L8 {
+    animation-delay: 1280ms; }
+  .carre--L9 {
+    animation-delay: 1440ms; }
+  .carre--L10 {
+    animation-delay: 1600ms; }

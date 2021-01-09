@@ -68,8 +68,8 @@ nav {
 	&__icone {
 		color: $color_1;
 		font-size: 1.5rem;
-		position: absolute;			/* C */ /* positionnement de nav__number */
-		left: 3rem;					/* C */ /* positionnement de nav__number */
+		position: absolute;			/* C */ /* positionnement de nav__icone */
+		left: 3rem;					/* C */ /* positionnement de nav__icone */
 	}
 }
 
@@ -121,7 +121,7 @@ nav {
 		@include flex-align-row-between-center-padding;
 		@include ajust-h4-p;
 		&-love {
-			@include love-anim-A;
+			@include love-anim;
 		}
 	}
 	&__new {

@@ -13,7 +13,7 @@
 		top: 15rem;
 		@include flex-align-row-between-center-padding;
 		&-love {
-			@include love-anim-B;
+			@include love-anim;
 		}
 	}
 }
@@ -31,7 +31,7 @@
 		top: 15rem;
 		@include flex-align-row-between-center-padding;
 		&-love {
-			@include love-anim-B;
+			@include love-anim;
 		}
 	}
 }
@@ -50,7 +50,7 @@
 		top: 15rem;
 		@include flex-align-row-between-center-padding;
 		&-love {
-			@include love-anim-B;
+			@include love-anim;
 		}
 	}
 }
@@ -68,7 +68,7 @@
 		top: 15rem;
 		@include flex-align-row-between-center-padding;
 		&-love {
-			@include love-anim-B;
+			@include love-anim;
 		}
 	}
 }
@@ -86,7 +86,7 @@
 		top: 15rem;
 		@include flex-align-row-between-center-padding;
 		&-love {
-			@include love-anim-B;
+			@include love-anim;
 		}
 	}
 }
@@ -97,6 +97,9 @@
 	padding: 0 1rem 0.5rem 1rem;
 	&__group {
 		padding-top: .5rem;
+		position: relative;
+		
+		animation: group 800ms both ease-out;
 	}
 	&__line {
 		width: 3rem;
@@ -111,9 +114,15 @@
 		margin-bottom: 1rem;
 		overflow: hidden;
 		cursor: pointer;
-		&--valid {
+		animation: dish 1s both cubic-bezier(0, 0, 0.2, 1);		/* un peu plus doux que ease-out à la fin */
+		@for $i from 1 through $dish-num {
+			&--L#{$i} {
+				animation-delay:  800ms + $dish-delay-step * $i;
+			}
+		}
+		&--valid {													/* animation coche plat */
 			width: 130%;
-			@include flex-align-row-nowrap-between-start-padding;
+			@include flex-align-row-nowrap-between-start-end-padding;
 			transition: all 500ms;
 			&:hover {					/* prépa animation */
 				width: 100%;
@@ -137,7 +146,7 @@
 			width: 20%;
 			height: 5.5rem;
 			background-color: $color_3;
-			margin-top: -.5rem;
+			margin-top: -.5rem;				/* ajustement centrage vertical ??? */
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -145,7 +154,7 @@
 				color: $color_01;
 				font-size: 2rem;
 				transform: rotate(0);
-				transition: transform 420ms 80ms;
+				transition: transform 420ms 80ms; /* choix valeur cf ChromeDevTool */
 			}
 		}
 	}
@@ -164,4 +173,9 @@
 		@include button;
 	}
 }
+
+
+
+
+
 
