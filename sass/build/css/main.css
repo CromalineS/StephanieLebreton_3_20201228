@@ -56,7 +56,54 @@
 /* rose */
 /* vert */
 /* gris clair */
-/* animation A (testé dans la section resto de l'index): un paint avant et après l'animation / quelques frames à plus de 60 fps */
+/* pages resto */
+/* loader */
+/*-------------- Boutton • design & transition --------------*/
+/*-------------- J'aime index & resto • supperposition coeur vide / coeur plein & animation --------------*/
+/*-------------- Lignes "index / fonctionnement" & "restos / dish" --------------*/
+/*-------------- Alignement (h4, p) "index / cartes resto" & "restos / dish"--------------*/
+/*-------------- Flex • alignement et ajustement mep --------------*/
+/*--------------- Loader ---------------*/
+@keyframes anim-ball {
+  from {
+    top: 100%;
+    height: 5px;
+    border-radius: 40px 40px 10px 10px;
+    transform: scaleX(1.7); }
+  20% {
+    height: 20px;
+    border-radius: 50%;
+    transform: scaleX(1); }
+  to {
+    top: 0;
+    /*height: 20px;
+		border-radius: 50%;
+		transform: scaleX(1);*/ } }
+
+@keyframes anim-shadow {
+  from {
+    transform: scale(0.8, 0.5);
+    opacity: 1; }
+  20% {
+    transform: scale(0.5, 0.5);
+    opacity: .8; }
+  to {
+    transform: scale(0, 0);
+    opacity: 0; } }
+
+@keyframes anim-text {
+  from {
+    transform: rotateX(1turn); }
+  60% {
+    transform: rotateX(0); } }
+
+@keyframes stop-loading {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+
+/*--------------- J'aime • remplissage coeur  ---------------*/
 @keyframes full-scale {
   from {
     transform: scale(0);
@@ -67,25 +114,14 @@
   100% {
     transform: scale(1); } }
 
-@keyframes full-size {
-  from {
-    height: 0;
-    transform: scale(1);
-    animation-timing-function: ease-in-out; }
-  95% {
-    height: 2rem;
-    transform: scale(1.2);
-    animation-timing-function: ease-in-out; }
-  100% {
-    height: 2rem;
-    transform: scale(1); } }
-
+/*--------------- Index • photos resto  ---------------*/
 @keyframes photo {
   from {
     transform: scale(1); }
   to {
     transform: scale(1.2); } }
 
+/*--------------- Restos • menus  ---------------*/
 @keyframes group {
   from {
     left: -50rem; }
@@ -99,6 +135,87 @@
   to {
     opacity: 1;
     transform: translateY(0); } }
+
+.loader-page {
+  width: 100%;
+  height: 100%;
+  background-color: #FFFFFF;
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  animation: stop-loading .2s 3s forwards; }
+
+.loader-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20%; }
+  .loader-box > .loader:nth-child(3) {
+    position: relative;
+    top: -93px; }
+
+.loader {
+  width: 300px;
+  height: 70px;
+  margin: auto;
+  display: flex;
+  justify-content: space-evenly; }
+  .loader__ball {
+    width: 15px;
+    /* taille des balles plus petite → meilleure parformance de l'animation : fps reste inférieur ou très proche de 60 (si 25 px pics vers 70 fps) */
+    height: 15px;
+    border-radius: 50%;
+    position: relative;
+    animation: anim-ball 0.5s alternate ease;
+    animation-iteration-count: 7;
+    /* stoppe l'animation au bout de 3,5s = jusque balles positionnées en haut */ }
+  .loader__shadow {
+    width: 15px;
+    height: 3px;
+    border-radius: 50%;
+    background-color: #aaaaaa;
+    opacity: 0;
+    filter: blur(1px);
+    /* effet flou */
+    z-index: -1;
+    animation: anim-shadow 0.5s alternate ease;
+    animation-iteration-count: 7; }
+  .loader p {
+    width: 15px;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .loader > .loader__ball:nth-child(1) {
+    background-color: #9356DC;
+    animation-delay: 200ms; }
+  .loader > .loader__shadow:nth-child(1) {
+    animation-delay: 200ms; }
+  .loader > p:nth-child(2) {
+    animation: anim-text 1s ease;
+    animation-iteration-count: 4;
+    /* animation balles stoppée au bout de 3,5s → 4 cylcles pour l'animation texte */
+    animation-delay: 200ms; }
+  .loader > .loader__ball:nth-child(2) {
+    background-color: #FF79DA;
+    animation-delay: 400ms; }
+  .loader > .loader__shadow:nth-child(2) {
+    animation-delay: 400ms; }
+  .loader > p:nth-child(4) {
+    animation: anim-text 1s ease;
+    animation-iteration-count: 4;
+    /* animation balles stoppée au bout de 3,5s → 4 cylcles pour l'animation texte */
+    animation-delay: 400ms; }
+  .loader > .loader__ball:nth-child(3) {
+    background-color: #99E2D0;
+    animation-delay: 600ms; }
+  .loader > .loader__shadow:nth-child(3) {
+    animation-delay: 600ms; }
+  .loader > p:nth-child(6) {
+    animation: anim-text 1s ease;
+    animation-iteration-count: 4;
+    /* animation balles stoppée au bout de 3,5s → 4 cylcles pour l'animation texte */
+    animation-delay: 600ms; }
 
 .header {
   padding: 20px 0;
@@ -169,7 +286,6 @@
     min-width: 15rem;
     border-radius: 2rem;
     background: linear-gradient(175deg, #FF79DA, #9356DC);
-    /*transition: box-shadow 500ms ease-in-out;					/* A2 → paint à chaque image */
     box-shadow: 2px 5px 10px #aaaaaa;
     padding: 0 2rem;
     margin-bottom: 1rem;
@@ -193,7 +309,6 @@
       border-radius: 2rem;
       background-color: #FFFFFF;
       box-shadow: 2px 5px 5px #000000;
-      /* A1 */
       position: absolute;
       /* G */
       /* positionnement de ::before dans btn */
@@ -204,13 +319,11 @@
       /* G */
       /* pour positionnement de ::before dans btn */
       opacity: 0;
-      /* état initial de ::before */
-      transition: opacity 500ms ease-in-out;
-      /* A1 */ }
-    .topo__btn:hover {
-      /*box-shadow: 1px 5px 10px darken($color_4, 60%);	/* A2 → paint à chaque image  */ }
-      .topo__btn:hover::after {
-        opacity: .2; }
+      /* état initial de ::after */
+      transition: opacity 500ms ease-in-out; }
+    .topo__btn:hover::after {
+      opacity: .2;
+      /* état final de ::after */ }
 
 /*---------- INDEX SECTION 3 • NAV ----------*/
 nav {
@@ -296,15 +409,7 @@ nav {
   /* pour pouvoir positionner les enfants */ }
   .card__link {
     color: #000000;
-    text-decoration: none;
-    /*&:hover {
-			~ .card__new {
-				animation: full-scale 500ms 200ms forwards;
-			}
-			> .card__img {
-				animation: full-scale 300ms 100ms forwards;
-			}
-		}*/ }
+    text-decoration: none; }
   .card__img {
     width: 100%;
     height: 13rem;
@@ -328,15 +433,13 @@ nav {
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
-      /* F */
-      /*fonctionne si largeur fixe */ }
+      /* tronque le texte avec ... / fonctionne si largeur fixe */ }
     .card__info h4 {
       margin-top: 1rem;
       margin-bottom: 0; }
     .card__info p {
       margin-top: 0.5rem; }
     .card__info-love {
-      /* animation : supperposition du coeur vide et du coeur plein */
       font-size: 2rem;
       position: relative;
       /* E */
@@ -379,6 +482,7 @@ nav {
 
 /*---------- PAGES RESTO SECTION 1 • IDENTITY ----------*/
 .identity-0 {
+  /* page_template */
   width: 100%;
   height: 22rem;
   padding-top: 1.5rem;
@@ -396,7 +500,6 @@ nav {
     justify-content: space-between;
     align-items: center; }
     .identity-0__head-love {
-      /* animation : supperposition du coeur vide et du coeur plein */
       font-size: 2rem;
       position: relative;
       /* E */
@@ -417,6 +520,7 @@ nav {
         animation: full-scale 500ms 100ms forwards; }
 
 .identity-1 {
+  /* page_1 */
   width: 100%;
   height: 22rem;
   padding-top: 1.5rem;
@@ -434,7 +538,6 @@ nav {
     justify-content: space-between;
     align-items: center; }
     .identity-1__head-love {
-      /* animation : supperposition du coeur vide et du coeur plein */
       font-size: 2rem;
       position: relative;
       /* E */
@@ -455,6 +558,7 @@ nav {
         animation: full-scale 500ms 100ms forwards; }
 
 .identity-2 {
+  /* page_2 */
   width: 100%;
   height: 22rem;
   padding-top: 1.5rem;
@@ -473,7 +577,6 @@ nav {
     justify-content: space-between;
     align-items: center; }
     .identity-2__head-love {
-      /* animation : supperposition du coeur vide et du coeur plein */
       font-size: 2rem;
       position: relative;
       /* E */
@@ -494,6 +597,7 @@ nav {
         animation: full-scale 500ms 100ms forwards; }
 
 .identity-3 {
+  /* page_3 */
   width: 100%;
   height: 22rem;
   padding-top: 1.5rem;
@@ -511,7 +615,6 @@ nav {
     justify-content: space-between;
     align-items: center; }
     .identity-3__head-love {
-      /* animation : supperposition du coeur vide et du coeur plein */
       font-size: 2rem;
       position: relative;
       /* E */
@@ -532,6 +635,7 @@ nav {
         animation: full-scale 500ms 100ms forwards; }
 
 .identity-4 {
+  /* page_4 */
   width: 100%;
   height: 22rem;
   padding-top: 1.5rem;
@@ -549,7 +653,6 @@ nav {
     justify-content: space-between;
     align-items: center; }
     .identity-4__head-love {
-      /* animation : supperposition du coeur vide et du coeur plein */
       font-size: 2rem;
       position: relative;
       /* E */
@@ -576,7 +679,7 @@ nav {
   .menu__group {
     padding-top: .5rem;
     position: relative;
-    animation: group 500ms 200ms both ease-out; }
+    animation: group 800ms both ease-out; }
   .menu__line {
     width: 3rem;
     height: .3rem;
@@ -596,25 +699,25 @@ nav {
     animation: dish 1s both cubic-bezier(0, 0, 0.2, 1);
     /* un peu plus doux que ease-out à la fin */ }
     .menu__dish--L1 {
-      animation-delay: 860ms; }
+      animation-delay: 960ms; }
     .menu__dish--L2 {
-      animation-delay: 1020ms; }
+      animation-delay: 1120ms; }
     .menu__dish--L3 {
-      animation-delay: 1180ms; }
+      animation-delay: 1280ms; }
     .menu__dish--L4 {
-      animation-delay: 1340ms; }
+      animation-delay: 1440ms; }
     .menu__dish--L5 {
-      animation-delay: 1500ms; }
+      animation-delay: 1600ms; }
     .menu__dish--L6 {
-      animation-delay: 1660ms; }
+      animation-delay: 1760ms; }
     .menu__dish--L7 {
-      animation-delay: 1820ms; }
+      animation-delay: 1920ms; }
     .menu__dish--L8 {
-      animation-delay: 1980ms; }
+      animation-delay: 2080ms; }
     .menu__dish--L9 {
-      animation-delay: 2140ms; }
+      animation-delay: 2240ms; }
     .menu__dish--L10 {
-      animation-delay: 2300ms; }
+      animation-delay: 2400ms; }
     .menu__dish--valid {
       /* animation coche plat */
       width: 130%;
@@ -641,8 +744,7 @@ nav {
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
-        /* F */
-        /*fonctionne si largeur fixe */ }
+        /* tronque le texte avec ... / fonctionne si largeur fixe */ }
       .menu__dish-box-1 h4 {
         margin-top: 1rem;
         margin-bottom: 0; }
@@ -683,7 +785,6 @@ nav {
     min-width: 15rem;
     border-radius: 2rem;
     background: linear-gradient(175deg, #FF79DA, #9356DC);
-    /*transition: box-shadow 500ms ease-in-out;					/* A2 → paint à chaque image */
     box-shadow: 2px 5px 10px #aaaaaa;
     padding: 0 2rem;
     margin-bottom: 1rem;
@@ -707,7 +808,6 @@ nav {
       border-radius: 2rem;
       background-color: #FFFFFF;
       box-shadow: 2px 5px 5px #000000;
-      /* A1 */
       position: absolute;
       /* G */
       /* positionnement de ::before dans btn */
@@ -718,13 +818,11 @@ nav {
       /* G */
       /* pour positionnement de ::before dans btn */
       opacity: 0;
-      /* état initial de ::before */
-      transition: opacity 500ms ease-in-out;
-      /* A1 */ }
-    .command__btn:hover {
-      /*box-shadow: 1px 5px 10px darken($color_4, 60%);	/* A2 → paint à chaque image  */ }
-      .command__btn:hover::after {
-        opacity: .2; }
+      /* état initial de ::after */
+      transition: opacity 500ms ease-in-out; }
+    .command__btn:hover::after {
+      opacity: .2;
+      /* état final de ::after */ }
 
 /* Break points 480 (560) 780 960*/
 body {
@@ -750,46 +848,5 @@ h1 {
 main {
   /*width: 90%;
 		margin: auto;
-		border: solid 1px red;*/ }
-
-/* TESTS */
-.test {
-  width: 50%;
-  margin: auto;
-  margin-top: 30%;
-  /*display: flex;
-	flex-direction: column;*/
-  border: solid 1px black; }
-
-.carre {
-  width: 3rem;
-  height: 3rem;
-  margin: auto;
-  /*border: solid 2px black;*/
-  animation: dish 1s both; }
-  .carre__bckgrd--1 {
-    background-color: #9356DC; }
-  .carre__bckgrd--2 {
-    background-color: #FF79DA; }
-  .carre__bckgrd--3 {
-    background-color: #99E2D0; }
-  .carre--L1 {
-    animation-delay: 160ms; }
-  .carre--L2 {
-    animation-delay: 320ms; }
-  .carre--L3 {
-    animation-delay: 480ms; }
-  .carre--L4 {
-    animation-delay: 640ms; }
-  .carre--L5 {
-    animation-delay: 800ms; }
-  .carre--L6 {
-    animation-delay: 960ms; }
-  .carre--L7 {
-    animation-delay: 1120ms; }
-  .carre--L8 {
-    animation-delay: 1280ms; }
-  .carre--L9 {
-    animation-delay: 1440ms; }
-  .carre--L10 {
-    animation-delay: 1600ms; }
+		border: solid 1px red;
+		z-index: 0;*/ }

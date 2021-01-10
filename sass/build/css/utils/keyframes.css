@@ -1,3 +1,45 @@
+@charset "UTF-8";
+/*--------------- Loader ---------------*/
+@keyframes anim-ball {
+  from {
+    top: 100%;
+    height: 5px;
+    border-radius: 40px 40px 10px 10px;
+    transform: scaleX(1.7); }
+  20% {
+    height: 20px;
+    border-radius: 50%;
+    transform: scaleX(1); }
+  to {
+    top: 0;
+    /*height: 20px;
+		border-radius: 50%;
+		transform: scaleX(1);*/ } }
+
+@keyframes anim-shadow {
+  from {
+    transform: scale(0.8, 0.5);
+    opacity: 1; }
+  20% {
+    transform: scale(0.5, 0.5);
+    opacity: .8; }
+  to {
+    transform: scale(0, 0);
+    opacity: 0; } }
+
+@keyframes anim-text {
+  from {
+    transform: rotateX(1turn); }
+  60% {
+    transform: rotateX(0); } }
+
+@keyframes stop-loading {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+
+/*--------------- J'aime • remplissage coeur  ---------------*/
 @keyframes full-scale {
   from {
     transform: scale(0);
@@ -8,25 +50,14 @@
   100% {
     transform: scale(1); } }
 
-@keyframes full-size {
-  from {
-    height: 0;
-    transform: scale(1);
-    animation-timing-function: ease-in-out; }
-  95% {
-    height: 2rem;
-    transform: scale(1.2);
-    animation-timing-function: ease-in-out; }
-  100% {
-    height: 2rem;
-    transform: scale(1); } }
-
+/*--------------- Index • photos resto  ---------------*/
 @keyframes photo {
   from {
     transform: scale(1); }
   to {
     transform: scale(1.2); } }
 
+/*--------------- Restos • menus  ---------------*/
 @keyframes group {
   from {
     left: -50rem; }

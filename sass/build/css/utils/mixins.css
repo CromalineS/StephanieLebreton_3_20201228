@@ -1,3 +1,6 @@
 @charset "UTF-8";
-/* animation A (testé dans la section resto de l'index): un paint avant et après l'animation / quelques frames à plus de 60 fps */
-/* animation B (testé sur nom resto des pages resto): paint à chaque image → solution moin sperformante */
+/*-------------- Boutton • design & transition --------------*/
+/*-------------- J'aime index & resto • supperposition coeur vide / coeur plein & animation --------------*/
+/*-------------- Lignes "index / fonctionnement" & "restos / dish" --------------*/
+/*-------------- Alignement (h4, p) "index / cartes resto" & "restos / dish"--------------*/
+/*-------------- Flex • alignement et ajustement mep --------------*/

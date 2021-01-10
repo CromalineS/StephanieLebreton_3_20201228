@@ -1,5 +1,6 @@
 /*---------- PAGES RESTO SECTION 1 • IDENTITY ----------*/
-.identity-0 {
+
+.identity-0 {									/* page_template */
 	width: 100%;
 	height: 22rem;
 	padding-top: 1.5rem;
@@ -17,7 +18,7 @@
 		}
 	}
 }
-.identity-1 {
+.identity-1 {									/* page_1 */						
 	width: 100%;
 	height: 22rem;
 	padding-top: 1.5rem;
@@ -35,7 +36,7 @@
 		}
 	}
 }
-.identity-2 {
+.identity-2 {									/* page_2 */
 	width: 100%;
 	height: 22rem;
 	padding-top: 1.5rem;
@@ -54,7 +55,7 @@
 		}
 	}
 }
-.identity-3 {
+.identity-3 {									/* page_3 */
 	width: 100%;
 	height: 22rem;
 	padding-top: 1.5rem;
@@ -72,7 +73,7 @@
 		}
 	}
 }
-.identity-4 {
+.identity-4 {									/* page_4 */
 	width: 100%;
 	height: 22rem;
 	padding-top: 1.5rem;
@@ -92,13 +93,13 @@
 }
 
 /*---------- PAGES RESTO SECTION 1 • MENU ----------*/
+
 .menu {
 	background-color: $color_4;
 	padding: 0 1rem 0.5rem 1rem;
 	&__group {
 		padding-top: .5rem;
 		position: relative;
-		
 		animation: group 800ms both ease-out;
 	}
 	&__line {
@@ -114,7 +115,7 @@
 		margin-bottom: 1rem;
 		overflow: hidden;
 		cursor: pointer;
-		animation: dish 1s both cubic-bezier(0, 0, 0.2, 1);		/* un peu plus doux que ease-out à la fin */
+		animation: dish 1s both cubic-bezier(0, 0, 0.2, 1);			/* un peu plus doux que ease-out à la fin */
 		@for $i from 1 through $dish-num {
 			&--L#{$i} {
 				animation-delay:  800ms + $dish-delay-step * $i;
@@ -124,7 +125,7 @@
 			width: 130%;
 			@include flex-align-row-nowrap-between-start-end-padding;
 			transition: all 500ms;
-			&:hover {					/* prépa animation */
+			&:hover {												/* prépa animation */
 				width: 100%;
 				> .menu__dish-box-3 {
 					> .fas {
@@ -146,7 +147,7 @@
 			width: 20%;
 			height: 5.5rem;
 			background-color: $color_3;
-			margin-top: -.5rem;				/* ajustement centrage vertical ??? */
+			margin-top: -.5rem;								/* ajustement centrage vertical ??? */
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -154,17 +155,18 @@
 				color: $color_01;
 				font-size: 2rem;
 				transform: rotate(0);
-				transition: transform 420ms 80ms; /* choix valeur cf ChromeDevTool */
+				transition: transform 420ms 80ms; 			/* choix valeur cf ChromeDevTool */
 			}
 		}
 	}
 }
 
 /*---------- PAGES RESTO SECTION 1 • COMMAND ----------*/
+
 .command {
 	background-color: $color_4;
 	padding: 3rem;
-	display: flex;	/* permet d'appliquer le padding de button plutôt que le witdh 100% du parent par défaut */ 
+	display: flex;											/* permet d'appliquer le padding de button plutôt que le witdh 100% du parent par défaut */ 
 	justify-content: center;
 	&__link {
 		text-decoration: none;

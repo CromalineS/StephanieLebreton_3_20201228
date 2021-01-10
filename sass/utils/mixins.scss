@@ -1,45 +1,47 @@
+/*-------------- Boutton • design & transition --------------*/
+
 @mixin button {
 	color: $color_01;
 	height: 3.5rem;
 	min-width: 15rem;
 	border-radius: 2rem;
 	background: linear-gradient(175deg, $color_2, $color_1);	
-	/*transition: box-shadow 500ms ease-in-out;					/* A2 → paint à chaque image */
 	box-shadow: 2px 5px 10px darken($color_4, 30%);				
 	padding: 0 2rem;
 	margin-bottom: 1rem;
-	display: flex;				/* A */ /* pour alignement du texte de btn */
-	justify-content: center;	/* A */ /* alignement horizontal du texte de btn */
-	align-items: center; 		/* A */ /* alignement vertical du texte de btn */
-	position: relative;			/* G */ /* pour positionnement de ::before dans btn */
-	&::after {					/* éclaircissement de btn • élément en-dessous du texte → ::after */		
+	display: flex;								/* A */ /* pour alignement du texte de btn */
+	justify-content: center;					/* A */ /* alignement horizontal du texte de btn */
+	align-items: center; 						/* A */ /* alignement vertical du texte de btn */
+	position: relative;							/* G */ /* pour positionnement de ::before dans btn */
+	&::after {									/* éclaircissement de btn • élément en-dessous du texte → ::after */		
 		content:"";
 		height: 100%;
 		width: 100%;
 		border-radius: 2rem;
 		background-color: $color_01;		
-		box-shadow: 2px 5px 5px $color_00;	/* A1 */
-		position: absolute;		/* G */ /* positionnement de ::before dans btn */
-		left: 0;				/* G */ /* pour positionnement de ::before dans btn */
-		top: 0;					/* G */ /* pour positionnement de ::before dans btn */
-		opacity: 0;				/* état initial de ::before */
-		transition: opacity 500ms ease-in-out;	/* A1 */
+		box-shadow: 2px 5px 5px $color_00;
+		position: absolute;						/* G */ /* positionnement de ::before dans btn */
+		left: 0;								/* G */ /* pour positionnement de ::before dans btn */
+		top: 0;									/* G */ /* pour positionnement de ::before dans btn */
+		opacity: 0;								/* état initial de ::after */
+		transition: opacity 500ms ease-in-out;
 	}
 	&:hover {
-		/*box-shadow: 1px 5px 10px darken($color_4, 60%);	/* A2 → paint à chaque image  */
 		&::after {
-			opacity: .2;
+			opacity: .2;						/* état final de ::after */
 		}
 	}
 }
-/* animation A (testé dans la section resto de l'index): un paint avant et après l'animation / quelques frames à plus de 60 fps */
-@mixin love-anim {				/* animation : supperposition du coeur vide et du coeur plein */
+
+/*-------------- J'aime index & resto • supperposition coeur vide / coeur plein & animation --------------*/
+
+@mixin love-anim {				
 	font-size: 2rem;
-	position : relative;			/* E */ /* pour positionnement de fas au dessus de far*/
+	position : relative;						/* E */ /* pour positionnement de fas au dessus de far*/
 	& > .fas {
-		color: $color_1; 			/*linear-gradient($color_1, $color_2); ??? */
-		position: absolute;			/* E */ /* pour positionnement de fas au dessus de far*/
-		left: 0;					/* E */ /* pour positionnement de fas au dessus de far*/
+		color: $color_1; 						/*linear-gradient($color_1, $color_2); ??? */
+		position: absolute;						/* E */ /* pour positionnement de fas au dessus de far*/
+		left: 0;								/* E */ /* pour positionnement de fas au dessus de far*/
 		top: .15rem;
 		transform: scale(0);
 		transform-origin: bottom;
@@ -49,6 +51,7 @@
 	}
 }
 
+/*-------------- Lignes "index / fonctionnement" & "restos / dish" --------------*/
 
 @mixin window {
 	width: 100%;
@@ -58,11 +61,13 @@
 	box-shadow: 2px 5px 10px darken($color_4, 20%);
 }
 
+/*-------------- Alignement (h4, p) "index / cartes resto" & "restos / dish"--------------*/
+
 @mixin ajust-h4-p {
 	h4, p {
 		overflow: hidden;
 		white-space: nowrap;
-		text-overflow: ellipsis;	/* F */ /*fonctionne si largeur fixe */
+		text-overflow: ellipsis;				/* tronque le texte avec ... / fonctionne si largeur fixe */
 	}
 	h4 {
 		margin-top: 1rem;
@@ -73,6 +78,8 @@
 	}
 }
 
+/*-------------- Flex • alignement et ajustement mep --------------*/
+
 @mixin flex-align-row-between-center-padding {
 	padding: 0 2rem 0 1rem;
 	display: flex;
@@ -80,17 +87,20 @@
 	justify-content: space-between;
 	align-items: center;
 }
+
 @mixin flex-align-row-center-center {
 	display: flex;					/* A */ /* pour alignement des sous éléments */
 	justify-content: center;		/* A */ /* alignement horizontal des sous éléments */
 	align-items: center; 			/* A */ /* alignement vertical des sous éléments */
 }
+
 @mixin flex-align-row-between-end-padding {
 	padding: 0 0 0 1rem;
 	display: flex;					/* A */ /* pour alignement des sous éléments */
 	justify-content: space-between;	/* A */ /* alignement horizontal des sous éléments */
 	align-items: flex-end; 			/* A */ /* alignement vertical des sous éléments */
 }
+
 @mixin flex-align-row-nowrap-between-start-end-padding {
 	padding-left: 1rem;
 	display: flex;					/* A */ /* pour alignement des sous éléments */

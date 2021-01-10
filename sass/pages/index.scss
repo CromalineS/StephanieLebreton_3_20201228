@@ -1,4 +1,5 @@
 /*---------- INDEX SECTION 1 • SEARCH----------*/
+
 .search {
 	padding: 20px 0;
 	background: linear-gradient(darken($color_4, 20%), darken($color_4, 5%) 10%);
@@ -13,6 +14,7 @@
 }
 
 /*---------- INDEX SECTION 2 • TOPO ----------*/
+
 .topo {
 	text-align: center;
 	background-color: $color_4;
@@ -20,7 +22,7 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
-	align-items: center;			/* permet des width différents pour les boites de .topo  sinon ils s'étirent tous à 100% de .topo */
+	align-items: center;						/* permet des width différents pour les boites de .topo  sinon ils s'étirent tous à 100% de .topo */
 	h2 {
 		margin: 0;
 	}
@@ -37,11 +39,12 @@
 }
 
 /*---------- INDEX SECTION 3 • NAV ----------*/
+
 nav {
 	padding: 2rem 2rem 1rem 2rem;
 }
 .nav {
-	padding: 1rem 0 1rem 1rem;		/* ajustement : alignement left de h2 et nav & centrage nav__link*/
+	padding: 1rem 0 1rem 1rem;					/* ajustement : alignement left de h2 et nav & centrage nav__link*/
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
@@ -53,7 +56,7 @@ nav {
 		@include window;
 		margin-bottom: 2rem;
 		@include flex-align-row-center-center;
-		position: relative;			/* B */ /* pour pouvoir positionner les sous éléments */
+		position: relative;						/* B */ /* pour pouvoir positionner les sous éléments */
 	}
 	&__number {
 		color: $color_01;
@@ -62,18 +65,19 @@ nav {
 		border-radius: 2rem;
 		background-color: $color_1;
 		@include flex-align-row-center-center;
-		position: absolute;			/* B */ /* positionnement de nav__number */
-		left: -1rem;				/* B */ /* positionnement de nav__number */
+		position: absolute;						/* B */ /* positionnement de nav__number */
+		left: -1rem;							/* B */ /* positionnement de nav__number */
 	}
 	&__icone {
 		color: $color_1;
 		font-size: 1.5rem;
-		position: absolute;			/* C */ /* positionnement de nav__icone */
-		left: 3rem;					/* C */ /* positionnement de nav__icone */
+		position: absolute;						/* C */ /* positionnement de nav__icone */
+		left: 3rem;								/* C */ /* positionnement de nav__icone */
 	}
 }
 
 /*---------- INDEX SECTION 4 • RESTOS ----------*/
+
 .restos {
 	background-color: $color_4;
 	padding: 2rem;
@@ -82,23 +86,15 @@ nav {
 }
 .card {
 		/* background-color: $color_01 */
-		width: 100%;				/* pour firefox */
+		width: 100%;							/* pour firefox */
 		border-radius: 1.5rem;
 		overflow: hidden;
 		box-shadow: 2px 5px 10px darken($color_4, 20%);
 		margin-bottom: 2rem;
-		position: relative;			/* D */ /* pour pouvoir positionner les enfants */
+		position: relative;						/* D */ /* pour pouvoir positionner les enfants */
 	&__link {
 		color: $color_00;
 		text-decoration: none;
-		/*&:hover {
-			~ .card__new {
-				animation: full-scale 500ms 200ms forwards;
-			}
-			> .card__img {
-				animation: full-scale 300ms 100ms forwards;
-			}
-		}*/
 	}
 	&__img {
 		width: 100%;
@@ -128,9 +124,9 @@ nav {
 		color: darken($color_3, 50%);
 		background-color: $color_3;
 		padding: .5rem 1rem;
-		position: absolute;			/* D */ /* positionnement de card__new */
-		top: .1rem;					/* D */ /* positionnement de card__new */
-		right: 1rem;				/* D */ /* positionnement de card__new */
+		position: absolute;							/* D */ /* positionnement de card__new */
+		top: .1rem;									/* D */ /* positionnement de card__new */
+		right: 1rem;								/* D */ /* positionnement de card__new */
 	}
 	&:hover {
 		.card__new {
