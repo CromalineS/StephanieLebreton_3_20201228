@@ -12,4 +12,7 @@
 	&:hover > .fas {
 		animation: full-scale 500ms 100ms forwards;
 	}
+	&:hover > .far {
+		animation: detail 500ms 100ms forwards;		/* fait disparaître le coeur vide noir pour pallier au problème de précision de supperposition */
+	}
 }

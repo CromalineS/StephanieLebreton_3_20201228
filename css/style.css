@@ -128,6 +128,14 @@
     transform: scale(1);
   }
 }
+@keyframes detail {
+  from, 95% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 /*--------------- Index • photos resto  ---------------*/
 @keyframes photo {
   from {
@@ -322,6 +330,10 @@
 }
 .love:hover > .fas {
   animation: full-scale 500ms 100ms forwards;
+}
+.love:hover > .far {
+  animation: detail 500ms 100ms forwards;
+  /* fait disparaître le coeur vide noir pour pallier au problème de précision de supperposition */
 }
 
 .header {

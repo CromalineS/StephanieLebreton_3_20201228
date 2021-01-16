@@ -52,6 +52,12 @@
   100% {
     transform: scale(1); } }
 
+@keyframes detail {
+  from, 95% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
 /*--------------- Index • photos resto  ---------------*/
 @keyframes photo {
   from {
