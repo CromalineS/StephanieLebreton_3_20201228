@@ -469,6 +469,7 @@
   left: -1rem;
   /* B */
   /* positionnement de nav__number */
+  z-index: 10;
 }
 .use__line-icone {
   /*width: 2rem;*/

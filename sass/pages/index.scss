@@ -62,6 +62,7 @@
 		@include flex-align-row-center-center;
 		position: absolute;						/* B */ /* positionnement de nav__number */
 		left: -1rem;							/* B */ /* positionnement de nav__number */
+		z-index: 10;
 		}
 		&-icone {
 		/*width: 2rem;*/
