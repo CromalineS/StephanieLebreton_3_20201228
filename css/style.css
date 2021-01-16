@@ -464,10 +464,10 @@
   /* alignement vertical des sous éléments */
   position: absolute;
   /* B */
-  /* positionnement de nav__number */
+  /* positionnement de use__number */
   left: -1rem;
   /* B */
-  /* positionnement de nav__number */
+  /* positionnement de use__number */
   z-index: 10;
 }
 .use__line-icone {
@@ -476,10 +476,10 @@
   font-size: 1.3rem;
   position: relative;
   /* C */
-  /* positionnement de nav__icone */
+  /* positionnement de use__icone */
   right: 1.5rem;
   /* C */
-  /* positionnement de nav__icone */
+  /* positionnement de use__icone */
 }
 .use__line::after {
   /* éclaircissement de btn • élément en-dessous du texte → ::after */
@@ -511,8 +511,11 @@
 .restos {
   background-color: #F6F6F6;
   padding: 2rem;
+}
+.restos > div {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .card {
@@ -594,6 +597,26 @@
   transform: scale(1);
 }
 
+@media all and (max-width: 575px) {
+  .card {
+    width: 100%;
+  }
+}
+@media (min-width: 576px) and (max-width: 1280px) {
+  .card {
+    width: 47%;
+  }
+}
+@media all and (min-width: 1281px) {
+  .card {
+    width: 23%;
+  }
+}
+@media all and (min-width: 1281px) {
+  .use__line {
+    max-width: 33%;
+  }
+}
 /*---------- PAGES RESTO SECTION 1 • IDENTITY ----------*/
 .identity-0 {
   /* page_template */

@@ -60,16 +60,16 @@
 		border-radius: 2rem;
 		background-color: $color_1;
 		@include flex-align-row-center-center;
-		position: absolute;						/* B */ /* positionnement de nav__number */
-		left: -1rem;							/* B */ /* positionnement de nav__number */
+		position: absolute;						/* B */ /* positionnement de use__number */
+		left: -1rem;							/* B */ /* positionnement de use__number */
 		z-index: 10;
 		}
 		&-icone {
 		/*width: 2rem;*/
 		color: $color_1;
 		font-size: 1.3rem;
-		position: relative;						/* C */ /* positionnement de nav__icone */
-		right: 1.5rem;							/* C */ /* positionnement de nav__icone */
+		position: relative;						/* C */ /* positionnement de use__icone */
+		right: 1.5rem;							/* C */ /* positionnement de use__icone */
 		}
 		&::after {									/* éclaircissement de btn • élément en-dessous du texte → ::after */		
 		content:"";
@@ -91,13 +91,19 @@
 	}
 }
 
+
+
+
 /*---------- INDEX SECTION 4 • RESTOS ----------*/
 
 .restos {
 	background-color: $color_4;
 	padding: 2rem;
+	> div {
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: space-between;
+	}
 }
 .card {
 		/* background-color: $color_01 */
@@ -158,4 +164,27 @@
 	}
 }
 
-	
+
+@media all and (max-width: 575px) {
+	.card {
+		width: 100%;
+	}
+}
+
+@media (min-width: 576px) and (max-width: 1280px) {
+	.card {
+		width: 47%;
+	}
+}
+
+@media all and (min-width: 1281px) {
+	.card {
+		width: 23%;
+	}
+}
+
+@media all and (min-width: 1281px) {
+	.use__line {
+		max-width: 33%;
+	}
+}
