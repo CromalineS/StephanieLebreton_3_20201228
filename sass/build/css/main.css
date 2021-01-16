@@ -58,11 +58,10 @@
 /* gris clair */
 /* pages resto */
 /* loader */
-/*-------------- Boutton • design & transition --------------*/
-/*-------------- J'aime index & resto • supperposition coeur vide / coeur plein & animation --------------*/
 /*-------------- Lignes "index / fonctionnement" & "restos / dish" --------------*/
 /*-------------- Alignement (h4, p) "index / cartes resto" & "restos / dish"--------------*/
 /*-------------- Flex • alignement et ajustement mep --------------*/
+/*-------------- visuel resto "pages restos / identity--------------*/
 /*--------------- Loader ---------------*/
 @keyframes anim-ball {
   from {
@@ -99,9 +98,11 @@
 
 @keyframes stop-loading {
   from {
-    opacity: 1; }
+    opacity: 1;
+    z-index: 100; }
   to {
-    opacity: 0; } }
+    opacity: 0;
+    z-index: -100; } }
 
 /*--------------- J'aime • remplissage coeur  ---------------*/
 @keyframes full-scale {
@@ -135,6 +136,51 @@
   to {
     opacity: 1;
     transform: translateY(0); } }
+
+.button {
+  color: #FFFFFF;
+  height: 3.5rem;
+  min-width: 15rem;
+  border-radius: 2rem;
+  background: linear-gradient(175deg, #FF79DA, #9356DC);
+  box-shadow: 2px 5px 10px #aaaaaa;
+  padding: 0 2rem;
+  margin-bottom: 1rem;
+  display: flex;
+  /* A */
+  /* pour alignement du texte de btn */
+  justify-content: center;
+  /* A */
+  /* alignement horizontal du texte de btn */
+  align-items: center;
+  /* A */
+  /* alignement vertical du texte de btn */
+  position: relative;
+  /* G */
+  /* pour positionnement de ::before dans btn */ }
+  .button::after {
+    /* éclaircissement de btn • élément en-dessous du texte → ::after */
+    content: "";
+    height: 100%;
+    width: 100%;
+    border-radius: 2rem;
+    background-color: #FFFFFF;
+    box-shadow: 2px 5px 5px #000000;
+    position: absolute;
+    /* G */
+    /* positionnement de ::before dans btn */
+    left: 0;
+    /* G */
+    /* pour positionnement de ::before dans btn */
+    top: 0;
+    /* G */
+    /* pour positionnement de ::before dans btn */
+    opacity: 0;
+    /* état initial de ::after */
+    transition: opacity 500ms ease-in-out; }
+  .button:hover::after {
+    opacity: .2;
+    /* état final de ::after */ }
 
 .loader-page {
   width: 100%;
@@ -217,6 +263,26 @@
     /* animation balles stoppée au bout de 3,5s → 4 cylcles pour l'animation texte */
     animation-delay: 600ms; }
 
+.love {
+  font-size: 2rem;
+  position: relative;
+  /* E */
+  /* pour positionnement de fas au dessus de far*/ }
+  .love > .fas {
+    color: #9356DC;
+    /*linear-gradient($color_1, $color_2); ??? */
+    position: absolute;
+    /* E */
+    /* pour positionnement de fas au dessus de far*/
+    left: 0;
+    /* E */
+    /* pour positionnement de fas au dessus de far*/
+    top: .15rem;
+    transform: scale(0);
+    transform-origin: bottom; }
+  .love:hover > .fas {
+    animation: full-scale 500ms 100ms forwards; }
+
 .header {
   padding: 20px 0;
   position: relative;
@@ -280,63 +346,18 @@
     font-weight: normal; }
   .topo__link {
     text-decoration: none; }
-  .topo__btn {
-    color: #FFFFFF;
-    height: 3.5rem;
-    min-width: 15rem;
-    border-radius: 2rem;
-    background: linear-gradient(175deg, #FF79DA, #9356DC);
-    box-shadow: 2px 5px 10px #aaaaaa;
-    padding: 0 2rem;
-    margin-bottom: 1rem;
-    display: flex;
-    /* A */
-    /* pour alignement du texte de btn */
-    justify-content: center;
-    /* A */
-    /* alignement horizontal du texte de btn */
-    align-items: center;
-    /* A */
-    /* alignement vertical du texte de btn */
-    position: relative;
-    /* G */
-    /* pour positionnement de ::before dans btn */ }
-    .topo__btn::after {
-      /* éclaircissement de btn • élément en-dessous du texte → ::after */
-      content: "";
-      height: 100%;
-      width: 100%;
-      border-radius: 2rem;
-      background-color: #FFFFFF;
-      box-shadow: 2px 5px 5px #000000;
-      position: absolute;
-      /* G */
-      /* positionnement de ::before dans btn */
-      left: 0;
-      /* G */
-      /* pour positionnement de ::before dans btn */
-      top: 0;
-      /* G */
-      /* pour positionnement de ::before dans btn */
-      opacity: 0;
-      /* état initial de ::after */
-      transition: opacity 500ms ease-in-out; }
-    .topo__btn:hover::after {
-      opacity: .2;
-      /* état final de ::after */ }
 
 /*---------- INDEX SECTION 3 • NAV ----------*/
-nav {
+.use {
   padding: 2rem 2rem 1rem 2rem; }
-
-.nav {
-  padding: 1rem 0 1rem 1rem;
-  /* ajustement : alignement left de h2 et nav & centrage nav__link*/
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  /*border: solid 1px black;*/ }
-  .nav__link {
+  .use__box {
+    padding: 1rem 0 1rem 1rem;
+    /* ajustement : alignement left de h2 et nav & centrage nav__link*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /*border: solid 1px black;*/ }
+  .use__line {
     text-decoration: none;
     color: #000000;
     background: #F6F6F6;
@@ -358,36 +379,37 @@ nav {
     position: relative;
     /* B */
     /* pour pouvoir positionner les sous éléments */ }
-  .nav__number {
-    color: #FFFFFF;
-    width: 2rem;
-    height: 2rem;
-    border-radius: 2rem;
-    background-color: #9356DC;
-    display: flex;
-    /* A */
-    /* pour alignement des sous éléments */
-    justify-content: center;
-    /* A */
-    /* alignement horizontal des sous éléments */
-    align-items: center;
-    /* A */
-    /* alignement vertical des sous éléments */
-    position: absolute;
-    /* B */
-    /* positionnement de nav__number */
-    left: -1rem;
-    /* B */
-    /* positionnement de nav__number */ }
-  .nav__icone {
-    color: #9356DC;
-    font-size: 1.5rem;
-    position: absolute;
-    /* C */
-    /* positionnement de nav__icone */
-    left: 3rem;
-    /* C */
-    /* positionnement de nav__icone */ }
+    .use__line-number {
+      color: #FFFFFF;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 2rem;
+      background-color: #9356DC;
+      display: flex;
+      /* A */
+      /* pour alignement des sous éléments */
+      justify-content: center;
+      /* A */
+      /* alignement horizontal des sous éléments */
+      align-items: center;
+      /* A */
+      /* alignement vertical des sous éléments */
+      position: absolute;
+      /* B */
+      /* positionnement de nav__number */
+      left: -1rem;
+      /* B */
+      /* positionnement de nav__number */ }
+    .use__line-icone {
+      /*width: 2rem;*/
+      color: #9356DC;
+      font-size: 1.3rem;
+      position: relative;
+      /* C */
+      /* positionnement de nav__icone */
+      right: 1.5rem;
+      /* C */
+      /* positionnement de nav__icone */ }
 
 /*---------- INDEX SECTION 4 • RESTOS ----------*/
 .restos {
@@ -439,25 +461,6 @@ nav {
       margin-bottom: 0; }
     .card__info p {
       margin-top: 0.5rem; }
-    .card__info-love {
-      font-size: 2rem;
-      position: relative;
-      /* E */
-      /* pour positionnement de fas au dessus de far*/ }
-      .card__info-love > .fas {
-        color: #9356DC;
-        /*linear-gradient($color_1, $color_2); ??? */
-        position: absolute;
-        /* E */
-        /* pour positionnement de fas au dessus de far*/
-        left: 0;
-        /* E */
-        /* pour positionnement de fas au dessus de far*/
-        top: .15rem;
-        transform: scale(0);
-        transform-origin: bottom; }
-      .card__info-love:hover > .fas {
-        animation: full-scale 500ms 100ms forwards; }
   .card__new {
     color: #1b6150;
     background-color: #99E2D0;
@@ -483,11 +486,11 @@ nav {
 /*---------- PAGES RESTO SECTION 1 • IDENTITY ----------*/
 .identity-0 {
   /* page_template */
+  background-image: url("../pictures/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg");
+  background-size: 110%;
   width: 100%;
   height: 22rem;
-  padding-top: 1.5rem;
-  background-image: url("../pictures/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg");
-  background-size: 110%; }
+  padding-top: 1.5rem; }
   .identity-0__head {
     height: 7rem;
     background-color: #F6F6F6;
@@ -499,33 +502,14 @@ nav {
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center; }
-    .identity-0__head-love {
-      font-size: 2rem;
-      position: relative;
-      /* E */
-      /* pour positionnement de fas au dessus de far*/ }
-      .identity-0__head-love > .fas {
-        color: #9356DC;
-        /*linear-gradient($color_1, $color_2); ??? */
-        position: absolute;
-        /* E */
-        /* pour positionnement de fas au dessus de far*/
-        left: 0;
-        /* E */
-        /* pour positionnement de fas au dessus de far*/
-        top: .15rem;
-        transform: scale(0);
-        transform-origin: bottom; }
-      .identity-0__head-love:hover > .fas {
-        animation: full-scale 500ms 100ms forwards; }
 
 .identity-1 {
   /* page_1 */
+  background-image: url("../pictures/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg");
+  background-size: 110%;
   width: 100%;
   height: 22rem;
-  padding-top: 1.5rem;
-  background-image: url("../pictures/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg");
-  background-size: 110%; }
+  padding-top: 1.5rem; }
   .identity-1__head {
     height: 7rem;
     background-color: #F6F6F6;
@@ -537,34 +521,15 @@ nav {
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center; }
-    .identity-1__head-love {
-      font-size: 2rem;
-      position: relative;
-      /* E */
-      /* pour positionnement de fas au dessus de far*/ }
-      .identity-1__head-love > .fas {
-        color: #9356DC;
-        /*linear-gradient($color_1, $color_2); ??? */
-        position: absolute;
-        /* E */
-        /* pour positionnement de fas au dessus de far*/
-        left: 0;
-        /* E */
-        /* pour positionnement de fas au dessus de far*/
-        top: .15rem;
-        transform: scale(0);
-        transform-origin: bottom; }
-      .identity-1__head-love:hover > .fas {
-        animation: full-scale 500ms 100ms forwards; }
 
 .identity-2 {
   /* page_2 */
-  width: 100%;
-  height: 22rem;
-  padding-top: 1.5rem;
   background-image: url("../pictures/restaurants/stil-u2Lp8tXIcjw-unsplash.jpg");
   background-size: 100%;
-  background-position: 0 -150px; }
+  background-position: 0 -150px;
+  width: 100%;
+  height: 22rem;
+  padding-top: 1.5rem; }
   .identity-2__head {
     height: 7rem;
     background-color: #F6F6F6;
@@ -576,33 +541,14 @@ nav {
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center; }
-    .identity-2__head-love {
-      font-size: 2rem;
-      position: relative;
-      /* E */
-      /* pour positionnement de fas au dessus de far*/ }
-      .identity-2__head-love > .fas {
-        color: #9356DC;
-        /*linear-gradient($color_1, $color_2); ??? */
-        position: absolute;
-        /* E */
-        /* pour positionnement de fas au dessus de far*/
-        left: 0;
-        /* E */
-        /* pour positionnement de fas au dessus de far*/
-        top: .15rem;
-        transform: scale(0);
-        transform-origin: bottom; }
-      .identity-2__head-love:hover > .fas {
-        animation: full-scale 500ms 100ms forwards; }
 
 .identity-3 {
   /* page_3 */
+  background-image: url("../pictures/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg");
+  background-size: 110%;
   width: 100%;
   height: 22rem;
-  padding-top: 1.5rem;
-  background-image: url("../pictures/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg");
-  background-size: 110%; }
+  padding-top: 1.5rem; }
   .identity-3__head {
     height: 7rem;
     background-color: #F6F6F6;
@@ -614,33 +560,14 @@ nav {
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center; }
-    .identity-3__head-love {
-      font-size: 2rem;
-      position: relative;
-      /* E */
-      /* pour positionnement de fas au dessus de far*/ }
-      .identity-3__head-love > .fas {
-        color: #9356DC;
-        /*linear-gradient($color_1, $color_2); ??? */
-        position: absolute;
-        /* E */
-        /* pour positionnement de fas au dessus de far*/
-        left: 0;
-        /* E */
-        /* pour positionnement de fas au dessus de far*/
-        top: .15rem;
-        transform: scale(0);
-        transform-origin: bottom; }
-      .identity-3__head-love:hover > .fas {
-        animation: full-scale 500ms 100ms forwards; }
 
 .identity-4 {
   /* page_4 */
+  background-image: url("../pictures/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg");
+  background-size: 100%;
   width: 100%;
   height: 22rem;
-  padding-top: 1.5rem;
-  background-image: url("../pictures/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg");
-  background-size: 100%; }
+  padding-top: 1.5rem; }
   .identity-4__head {
     height: 7rem;
     background-color: #F6F6F6;
@@ -652,25 +579,6 @@ nav {
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center; }
-    .identity-4__head-love {
-      font-size: 2rem;
-      position: relative;
-      /* E */
-      /* pour positionnement de fas au dessus de far*/ }
-      .identity-4__head-love > .fas {
-        color: #9356DC;
-        /*linear-gradient($color_1, $color_2); ??? */
-        position: absolute;
-        /* E */
-        /* pour positionnement de fas au dessus de far*/
-        left: 0;
-        /* E */
-        /* pour positionnement de fas au dessus de far*/
-        top: .15rem;
-        transform: scale(0);
-        transform-origin: bottom; }
-      .identity-4__head-love:hover > .fas {
-        animation: full-scale 500ms 100ms forwards; }
 
 /*---------- PAGES RESTO SECTION 1 • MENU ----------*/
 .menu {
@@ -779,50 +687,6 @@ nav {
   justify-content: center; }
   .command__link {
     text-decoration: none; }
-  .command__btn {
-    color: #FFFFFF;
-    height: 3.5rem;
-    min-width: 15rem;
-    border-radius: 2rem;
-    background: linear-gradient(175deg, #FF79DA, #9356DC);
-    box-shadow: 2px 5px 10px #aaaaaa;
-    padding: 0 2rem;
-    margin-bottom: 1rem;
-    display: flex;
-    /* A */
-    /* pour alignement du texte de btn */
-    justify-content: center;
-    /* A */
-    /* alignement horizontal du texte de btn */
-    align-items: center;
-    /* A */
-    /* alignement vertical du texte de btn */
-    position: relative;
-    /* G */
-    /* pour positionnement de ::before dans btn */ }
-    .command__btn::after {
-      /* éclaircissement de btn • élément en-dessous du texte → ::after */
-      content: "";
-      height: 100%;
-      width: 100%;
-      border-radius: 2rem;
-      background-color: #FFFFFF;
-      box-shadow: 2px 5px 5px #000000;
-      position: absolute;
-      /* G */
-      /* positionnement de ::before dans btn */
-      left: 0;
-      /* G */
-      /* pour positionnement de ::before dans btn */
-      top: 0;
-      /* G */
-      /* pour positionnement de ::before dans btn */
-      opacity: 0;
-      /* état initial de ::after */
-      transition: opacity 500ms ease-in-out; }
-    .command__btn:hover::after {
-      opacity: .2;
-      /* état final de ::after */ }
 
 /* Break points 480 (560) 780 960*/
 body {

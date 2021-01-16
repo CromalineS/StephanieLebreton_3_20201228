@@ -33,32 +33,27 @@
 	&__link {
 		text-decoration: none;
 	}
-	&__btn {
-		@include button;
-	}
 }
 
 /*---------- INDEX SECTION 3 • NAV ----------*/
 
-nav {
+.use {
 	padding: 2rem 2rem 1rem 2rem;
-}
-.nav {
-	padding: 1rem 0 1rem 1rem;					/* ajustement : alignement left de h2 et nav & centrage nav__link*/
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-		/*border: solid 1px black;*/
-	&__link {
-		text-decoration: none;
+	&__box {
+		padding: 1rem 0 1rem 1rem;					/* ajustement : alignement left de h2 et nav & centrage nav__link*/
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+			/*border: solid 1px black;*/
+	}
+	&__line {
 		color: $color_00;
-		background: $color_4;
+		background-color: $color_4;
 		@include window;
 		margin-bottom: 2rem;
 		@include flex-align-row-center-center;
 		position: relative;						/* B */ /* pour pouvoir positionner les sous éléments */
-	}
-	&__number {
+		&-number {
 		color: $color_01;
 		width: 2rem;
 		height: 2rem;
@@ -67,12 +62,31 @@ nav {
 		@include flex-align-row-center-center;
 		position: absolute;						/* B */ /* positionnement de nav__number */
 		left: -1rem;							/* B */ /* positionnement de nav__number */
-	}
-	&__icone {
+		}
+		&-icone {
+		/*width: 2rem;*/
 		color: $color_1;
-		font-size: 1.5rem;
-		position: absolute;						/* C */ /* positionnement de nav__icone */
-		left: 3rem;								/* C */ /* positionnement de nav__icone */
+		font-size: 1.3rem;
+		position: relative;						/* C */ /* positionnement de nav__icone */
+		right: 1.5rem;							/* C */ /* positionnement de nav__icone */
+		}
+		&::after {									/* éclaircissement de btn • élément en-dessous du texte → ::after */		
+		content:"";
+		height: 100%;
+		width: 100%;
+		border-radius: 1.5rem;					/* cf border-radius de @mixin window */
+		background-color: lighten($color_2, 15%);		
+		position: absolute;						/* G */ /* pour positionnement de ::after dans btn */
+		left: 0;								/* G */ /* positionnement de ::after dans btn */
+		top: 0;									/* G */ /* positionnement de ::after dans btn */
+		opacity: 0;								/* état initial de ::after */
+		transition: opacity 200ms ease-in-out;
+		}
+		&:hover {
+			&::after {
+				opacity: .2;						/* état final de ::after */
+			}
+		}
 	}
 }
 
@@ -116,9 +130,6 @@ nav {
 	&__info {
 		@include flex-align-row-between-center-padding;
 		@include ajust-h4-p;
-		&-love {
-			@include love-anim;
-		}
 	}
 	&__new {
 		color: darken($color_3, 50%);

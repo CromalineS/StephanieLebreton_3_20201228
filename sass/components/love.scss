@@ -1,0 +1,15 @@
+.love{				
+	font-size: 2rem;
+	position : relative;						/* E */ /* pour positionnement de fas au dessus de far*/
+	& > .fas {
+		color: $color_1; 						/*linear-gradient($color_1, $color_2); ??? */
+		position: absolute;						/* E */ /* pour positionnement de fas au dessus de far*/
+		left: 0;								/* E */ /* pour positionnement de fas au dessus de far*/
+		top: .15rem;
+		transform: scale(0);
+		transform-origin: bottom;
+	}
+	&:hover > .fas {
+		animation: full-scale 500ms 100ms forwards;
+	}
+}

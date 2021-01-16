@@ -1,95 +1,30 @@
 /*---------- PAGES RESTO SECTION 1 • IDENTITY ----------*/
 
 .identity-0 {									/* page_template */
-	width: 100%;
-	height: 22rem;
-	padding-top: 1.5rem;
 	background-image: url("../pictures/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg");
 	background-size: 110%;
-	&__head {
-		height: 7rem;
-		background-color: $color_4;
-		border-radius: 3rem 3rem 0 0;
-		position: relative;
-		top: 15rem;
-		@include flex-align-row-between-center-padding;
-		&-love {
-			@include love-anim;
-		}
-	}
+	@include identity;
 }
 .identity-1 {									/* page_1 */						
-	width: 100%;
-	height: 22rem;
-	padding-top: 1.5rem;
 	background-image: url("../pictures/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg");
 	background-size: 110%;
-	&__head {
-		height: 7rem;
-		background-color: $color_4;
-		border-radius: 3rem 3rem 0 0;
-		position: relative;
-		top: 15rem;
-		@include flex-align-row-between-center-padding;
-		&-love {
-			@include love-anim;
-		}
-	}
+	@include identity;
 }
 .identity-2 {									/* page_2 */
-	width: 100%;
-	height: 22rem;
-	padding-top: 1.5rem;
 	background-image: url("../pictures/restaurants/stil-u2Lp8tXIcjw-unsplash.jpg");
 	background-size: 100%;
 	background-position: 0 -150px;
-	&__head {
-		height: 7rem;
-		background-color: $color_4;
-		border-radius: 3rem 3rem 0 0;
-		position: relative;
-		top: 15rem;
-		@include flex-align-row-between-center-padding;
-		&-love {
-			@include love-anim;
-		}
-	}
+	@include identity;
 }
 .identity-3 {									/* page_3 */
-	width: 100%;
-	height: 22rem;
-	padding-top: 1.5rem;
 	background-image: url("../pictures/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg");
 	background-size: 110%;
-	&__head {
-		height: 7rem;
-		background-color: $color_4;
-		border-radius: 3rem 3rem 0 0;
-		position: relative;
-		top: 15rem;
-		@include flex-align-row-between-center-padding;
-		&-love {
-			@include love-anim;
-		}
-	}
+	@include identity;
 }
 .identity-4 {									/* page_4 */
-	width: 100%;
-	height: 22rem;
-	padding-top: 1.5rem;
 	background-image: url("../pictures/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg");
 	background-size: 100%;
-	&__head {
-		height: 7rem;
-		background-color: $color_4;
-		border-radius: 3rem 3rem 0 0;
-		position: relative;
-		top: 15rem;
-		@include flex-align-row-between-center-padding;
-		&-love {
-			@include love-anim;
-		}
-	}
+	@include identity;
 }
 
 /*---------- PAGES RESTO SECTION 1 • MENU ----------*/
@@ -170,9 +105,6 @@
 	justify-content: center;
 	&__link {
 		text-decoration: none;
-	}
-	&__btn {
-		@include button;
 	}
 }
 

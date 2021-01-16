@@ -35,9 +35,11 @@
 
 @keyframes stop-loading {
   from {
-    opacity: 1; }
+    opacity: 1;
+    z-index: 100; }
   to {
-    opacity: 0; } }
+    opacity: 0;
+    z-index: -100; } }
 
 /*--------------- J'aime • remplissage coeur  ---------------*/
 @keyframes full-scale {
