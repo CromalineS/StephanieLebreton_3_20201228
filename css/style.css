@@ -858,6 +858,16 @@
   text-decoration: none;
 }
 
+@media all and (min-width: 1281px) {
+  .menu-wrap {
+    width: 33%;
+  }
+
+  .menu {
+    display: flex;
+    justify-content: space-between;
+  }
+}
 /* Break points 480 (560) 780 960*/
 body {
   font-family: Roboto-Regular, Arial, sans-serif;
