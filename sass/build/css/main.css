@@ -7,50 +7,6 @@
   font-family: 'Roboto-Regular';
   src: url("../polices/Roboto/Roboto-Regular.ttf") format("truetype"); }
 
-@font-face {
-  font-family: 'Roboto-Black';
-  src: url("../polices/Roboto/Roboto-Black.ttf") format("truetype"); }
-
-@font-face {
-  font-family: 'Roboto-BlackItalic';
-  src: url("../polices/Roboto/Roboto-BlackItalic.ttf") format("truetype"); }
-
-@font-face {
-  font-family: 'Roboto-Bold';
-  src: url("../polices/Roboto/Roboto-Bold.ttf") format("truetype"); }
-
-@font-face {
-  font-family: 'Roboto-BoldItalic';
-  src: url("../polices/Roboto/Roboto-BoldItalic.ttf") format("truetype"); }
-
-@font-face {
-  font-family: 'Roboto-Italic';
-  src: url("../polices/Roboto/Roboto-Italic.ttf") format("truetype"); }
-
-@font-face {
-  font-family: 'Roboto-Light';
-  src: url("../polices/Roboto/Roboto-Light.ttf") format("truetype"); }
-
-@font-face {
-  font-family: 'Roboto-LightItalic';
-  src: url("../polices/Roboto/Roboto-LightItalic.ttf") format("truetype"); }
-
-@font-face {
-  font-family: 'Roboto-Medium';
-  src: url("polices/Roboto/Roboto-Medium.ttf") format("truetype"); }
-
-@font-face {
-  font-family: 'Roboto-MediumItalic';
-  src: url("../polices/Roboto/Roboto-MediumItalic.ttf") format("truetype"); }
-
-@font-face {
-  font-family: 'Roboto-Thin';
-  src: url("../polices/Roboto/Roboto-Thin.ttf") format("truetype"); }
-
-@font-face {
-  font-family: 'Roboto-ThinItalic';
-  src: url("../polices/Roboto/Roboto-ThinItalic.ttf") format("truetype"); }
-
 /* couleurs */
 /* violet */
 /* rose */
@@ -98,8 +54,7 @@
 
 @keyframes stop-loading {
   from {
-    opacity: 1;
-    z-index: 100; }
+    opacity: 1; }
   to {
     opacity: 0;
     z-index: -100; } }
@@ -114,6 +69,12 @@
     animation-timing-function: ease-in-out; }
   100% {
     transform: scale(1); } }
+
+@keyframes detail {
+  from, 95% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
 
 /*--------------- Index • photos resto  ---------------*/
 @keyframes photo {
@@ -168,13 +129,13 @@
     box-shadow: 2px 5px 5px #000000;
     position: absolute;
     /* G */
-    /* positionnement de ::before dans btn */
+    /* pour positionnement de ::after dans btn */
     left: 0;
     /* G */
-    /* pour positionnement de ::before dans btn */
+    /* positionnement de ::after dans btn */
     top: 0;
     /* G */
-    /* pour positionnement de ::before dans btn */
+    /* positionnement de ::after dans btn */
     opacity: 0;
     /* état initial de ::after */
     transition: opacity 500ms ease-in-out; }
@@ -186,7 +147,7 @@
   width: 100%;
   height: 100%;
   background-color: #FFFFFF;
-  z-index: 10;
+  z-index: 100;
   position: absolute;
   top: 0;
   animation: stop-loading .2s 3s forwards; }
@@ -282,6 +243,9 @@
     transform-origin: bottom; }
   .love:hover > .fas {
     animation: full-scale 500ms 100ms forwards; }
+  .love:hover > .far {
+    animation: detail 500ms 100ms forwards;
+    /* fait disparaître le coeur vide noir pour pallier au problème de précision de supperposition */ }
 
 .header {
   padding: 20px 0;
@@ -358,9 +322,8 @@
     justify-content: space-between;
     /*border: solid 1px black;*/ }
   .use__line {
-    text-decoration: none;
     color: #000000;
-    background: #F6F6F6;
+    background-color: #F6F6F6;
     width: 100%;
     /*min-width: 25rem;*/
     height: 5rem;
@@ -396,27 +359,53 @@
       /* alignement vertical des sous éléments */
       position: absolute;
       /* B */
-      /* positionnement de nav__number */
+      /* positionnement de use__number */
       left: -1rem;
       /* B */
-      /* positionnement de nav__number */ }
+      /* positionnement de use__number */
+      z-index: 10; }
     .use__line-icone {
       /*width: 2rem;*/
       color: #9356DC;
       font-size: 1.3rem;
       position: relative;
       /* C */
-      /* positionnement de nav__icone */
+      /* positionnement de use__icone */
       right: 1.5rem;
       /* C */
-      /* positionnement de nav__icone */ }
+      /* positionnement de use__icone */ }
+    .use__line::after {
+      /* éclaircissement de btn • élément en-dessous du texte → ::after */
+      content: "";
+      height: 100%;
+      width: 100%;
+      border-radius: 1.5rem;
+      /* cf border-radius de @mixin window */
+      background-color: #ffc6ef;
+      position: absolute;
+      /* G */
+      /* pour positionnement de ::after dans btn */
+      left: 0;
+      /* G */
+      /* positionnement de ::after dans btn */
+      top: 0;
+      /* G */
+      /* positionnement de ::after dans btn */
+      opacity: 0;
+      /* état initial de ::after */
+      transition: opacity 200ms ease-in-out; }
+    .use__line:hover::after {
+      opacity: .2;
+      /* état final de ::after */ }
 
 /*---------- INDEX SECTION 4 • RESTOS ----------*/
 .restos {
   background-color: #F6F6F6;
-  padding: 2rem;
-  display: flex;
-  flex-wrap: wrap; }
+  padding: 2rem; }
+  .restos > div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; }
 
 .card {
   /* background-color: $color_01 */
@@ -482,6 +471,22 @@
   .card:not(:hover) .photo {
     transition: transform 200ms ease-in;
     transform: scale(1); }
+
+@media all and (max-width: 575px) {
+  .card {
+    width: 100%; } }
+
+@media (min-width: 576px) and (max-width: 1280px) {
+  .card {
+    width: 47%; } }
+
+@media all and (min-width: 1281px) {
+  .card {
+    width: 23%; } }
+
+@media all and (min-width: 1281px) {
+  .use__line {
+    max-width: 33%; } }
 
 /*---------- PAGES RESTO SECTION 1 • IDENTITY ----------*/
 .identity-0 {
@@ -688,6 +693,13 @@
   .command__link {
     text-decoration: none; }
 
+@media all and (min-width: 1281px) {
+  .menu-wrap {
+    width: 33%; }
+  .menu {
+    display: flex;
+    justify-content: space-between; } }
+
 /* Break points 480 (560) 780 960*/
 body {
   font-family: Roboto-Regular, Arial, sans-serif;
@@ -699,7 +711,7 @@ body {
 h1, h3 {
   font-weight: normal; }
 
-h1, h3 {
+h1, h3, footer h3 {
   font-family: Shrikhand, Arial, sans-serif; }
 
 h1 {
