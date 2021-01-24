@@ -59,6 +59,12 @@
     opacity: 0;
     z-index: -100; } }
 
+@keyframes main-loading {
+  from {
+    visibility: hidden; }
+  to {
+    visibility: visible; } }
+
 /*--------------- J'aime • remplissage coeur  ---------------*/
 @keyframes full-scale {
   from {
@@ -281,6 +287,17 @@
     font-size: .9rem;
     width: 1.8rem; }
 
+@media all and (min-width: 576px) {
+  .foot > div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; } }
+
+/*---------- INDEX MAIN • LOADING ----------*/
+.index {
+  visibility: hidden;
+  animation: main-loading .2s 3.2s forwards; }
+
 /*---------- INDEX SECTION 1 • SEARCH----------*/
 .search {
   padding: 20px 0;
@@ -486,7 +503,7 @@
 
 @media all and (min-width: 1281px) {
   .use__line {
-    max-width: 33%; } }
+    max-width: 30%; } }
 
 /*---------- PAGES RESTO SECTION 1 • IDENTITY ----------*/
 .identity-0 {
@@ -711,7 +728,7 @@ body {
 h1, h3 {
   font-weight: normal; }
 
-h1, h3, footer h3 {
+h1, h3 {
   font-family: Shrikhand, Arial, sans-serif; }
 
 h1 {
@@ -720,9 +737,3 @@ h1 {
 * {
   box-sizing: border-box;
   /* les padding et bordures ne modifient pas les dimensions des boites */ }
-
-main {
-  /*width: 90%;
-		margin: auto;
-		border: solid 1px red;
-		z-index: 0;*/ }

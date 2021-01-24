@@ -108,7 +108,12 @@
 	}
 }
 
-
+@media (min-width: 576px) and (max-width: 1280px) {
+	.menu-wrap {
+		width: 70%;
+		margin: auto;
+	}
+}
 
 @media all and (min-width: 1281px) {
 	.menu-wrap {

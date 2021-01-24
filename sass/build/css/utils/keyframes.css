@@ -40,6 +40,12 @@
     opacity: 0;
     z-index: -100; } }
 
+@keyframes main-loading {
+  from {
+    visibility: hidden; }
+  to {
+    visibility: visible; } }
+
 /*--------------- J'aime • remplissage coeur  ---------------*/
 @keyframes full-scale {
   from {
